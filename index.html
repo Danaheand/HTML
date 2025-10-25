@@ -1179,9 +1179,9 @@
                             <div>
                                 <label class="font-semibold">3. ¿Dónde está?</label>
                                 <select class="w-full p-2 mt-2 border rounded">
-                                    <option>Casa Principal > Cocina > Despensa</option>
-                                    <option>Casa Principal > Garaje > Caja Herramientas</option>
-                                    <option>Oficina > Escritorio > Cajón 1</option>
+                                    <option>Casa Principal ► Cocina ► Despensa</option>
+                                    <option>Casa Principal ► Garaje ► Caja Herramientas</option>
+                                    <option>Oficina ► Escritorio ► Cajón 1</option>
                                 </select>
                             </div>
                             <!-- Pasos opcionales -->
@@ -1353,11 +1353,11 @@
 
     <!-- imagen grande -->
     <div class="w-full mb-4 overflow-hidden rounded-xl bg-gray-200 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 flex items-center justify-center"
-         style="height: 200px;">
-        <img id="detail-image"
-             src=""
-             alt="Imagen del objeto"
-             class="object-cover w-full h-full">
+        style="height: 120px;">
+       <img id="detail-image"
+           src=""
+           alt="Imagen del objeto"
+           class="object-cover max-h-24 w-auto mx-auto">
     </div>
 
     <!-- FORMULARIO -->
@@ -1402,7 +1402,7 @@
     </div>
 
     <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-2">
-        Ej: Casa Principal > Cocina > Despensa
+        Ej: Casa Principal ► Cocina ► Despensa
     </p>
 </div>
 
@@ -2050,7 +2050,7 @@
                         currentId = null;
                     }
                 }
-                return path.join(' > ')
+                return path.join(' ► ')
             }
 
             // --- modalGenericSave (NUESTRA VERSIÓN CON CRUD) ---
@@ -3322,7 +3322,7 @@
                     catEl.value = data.category || 'Seleccionar Categoría';
                     qtyEl.value = data.qty || 1;
                     unitsEl.value = data.units || 'Unidades';
-                    locEl.value = data.location || 'Casa Principal > Cocina > Despensa';
+                    locEl.value = data.location || 'Casa Principal ► Cocina ► Despensa';
                     costEl.value = data.cost || '';
                     dateEl.value = data.buyDate || '';
 
@@ -3352,7 +3352,7 @@
                             category: 'Herramientas',
                             qty: 1,
                             units: 'Unidades',
-                            location: 'Casa Principal > Garaje > Caja Herramientas',
+                            location: 'Casa Principal ► Garaje ► Caja Herramientas',
                             cost: '45',
                             buyDate: '2025-09-10'
                         });
@@ -3384,7 +3384,7 @@
                             category: 'Electrónica',
                             qty: 1,
                             units: 'Unidades',
-                            location: 'Casa Principal > Sala > Mueble TV',
+                            location: 'Casa Principal ► Sala ► Mueble TV',
                             cost: '650',
                             buyDate: '2024-06-15'
                         });
@@ -3400,7 +3400,7 @@
                             category: 'Alimentos', // <- cámbialo si tienes "Libros" luego
                             qty: 1,
                             units: 'Unidades',
-                            location: 'Casa Principal > Dormitorio > Librero',
+                            location: 'Casa Principal ► Dormitorio ► Librero',
                             cost: '20',
                             buyDate: '2023-12-01'
                         });
@@ -3432,25 +3432,25 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'tele',
             nombre: 'Televisión',
             img: 'img/tele.jpg',
-            ubicacion: 'Casa Principal > Sala'
+            ubicacion: 'Casa Principal ► Sala'
         },
         {
             id: 'arroz',
             nombre: 'Paquete de arroz',
             img: 'img/arroz.jpg',
-            ubicacion: 'Casa Principal > Cocina > Despensa'
+            ubicacion: 'Casa Principal ► Cocina ► Despensa'
         },
         {
             id: 'leche',
             nombre: 'Leche Entera',
             img: 'img/leche.jpg',
-            ubicacion: 'Casa Principal > Cocina > Refrigerador'
+            ubicacion: 'Casa Principal ► Cocina ► Refrigerador'
         },
         {
             id: 'taladro',
             nombre: 'Taladro Inalámbrico',
             img: 'img/taladro.jpg',
-            ubicacion: 'Casa Principal > Garaje > Caja Herramientas'
+            ubicacion: 'Casa Principal ► Garaje ► Caja Herramientas'
         },
         {
             id: 'pasaporte',
@@ -3604,37 +3604,37 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'tele',
             nombre: 'Televisión Salón',
             img: 'img/tele.jpg',
-            ubicacion: 'Casa Principal > Sala',
+            ubicacion: 'Casa Principal ► Sala',
         },
         {
             id: 'arroz',
             nombre: 'Paquete de arroz',
             img: 'img/arroz.jpg',
-            ubicacion: 'Casa Principal > Cocina > Despensa',
+            ubicacion: 'Casa Principal ► Cocina ► Despensa',
         },
         {
             id: 'leche',
             nombre: 'Leche Entera',
             img: 'img/leche.jpg',
-            ubicacion: 'Casa Principal > Cocina > Refrigerador',
+            ubicacion: 'Casa Principal ► Cocina ► Refrigerador',
         },
         {
             id: 'taladro',
             nombre: 'Taladro Inalámbrico',
             img: 'img/taladro.jpg',
-            ubicacion: 'Casa Principal > Garaje > Caja Herramientas',
+            ubicacion: 'Casa Principal ► Garaje ► Caja Herramientas',
         },
         {
             id: 'pasaporte',
             nombre: 'Pasaporte',
             img: 'img/pasaporte.jpg',
-            ubicacion: 'Oficina > Escritorio > Cajón 1',
+            ubicacion: 'Oficina ► Escritorio ► Cajón 1',
         },
         {
             id: 'libro',
             nombre: "Libro 'El Hobbit'",
             img: 'img/libro.jpg',
-            ubicacion: 'Librero > Sala',
+            ubicacion: 'Librero ► Sala',
         },
     ];
 
@@ -3792,11 +3792,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Lugares sugeridos (para el dropdown de ubicación)
     const knownLocations = [
-        'Casa Principal > Cocina > Despensa',
-        'Casa Principal > Cocina > Refrigerador',
-        'Casa Principal > Sala',
-        'Casa Principal > Garaje > Caja Herramientas',
-        'Oficina > Escritorio > Cajón 1',
+        'Casa Principal ► Cocina ► Despensa',
+        'Casa Principal ► Cocina ► Refrigerador',
+        'Casa Principal ► Sala',
+        'Casa Principal ► Garaje ► Caja Herramientas',
+        'Oficina ► Escritorio ► Cajón 1',
     ];
 
     // Categorías disponibles (para el select)
@@ -3814,7 +3814,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'taladro',
             nombre: 'Taladro Inalámbrico',
             img: 'img/taladro.jpg',
-            ubicacion: 'Casa Principal > Garaje > Caja Herramientas',
+            ubicacion: 'Casa Principal ► Garaje ► Caja Herramientas',
             cantidad: 1,
             categoria: 'Herramientas',
             notas: 'Batería al 60%. Marca Bosch.'
@@ -3823,7 +3823,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'pasaporte',
             nombre: 'Pasaporte',
             img: 'img/pasaporte.jpg',
-            ubicacion: 'Oficina > Escritorio > Cajón 1',
+            ubicacion: 'Oficina ► Escritorio ► Cajón 1',
             cantidad: 1,
             categoria: 'Documentos',
             notas: 'Vence 2029. No olvidar renovarlo 6 meses antes.'
@@ -3832,7 +3832,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'tele',
             nombre: 'Televisión Salón',
             img: 'img/tele.jpg',
-            ubicacion: 'Casa Principal > Sala',
+            ubicacion: 'Casa Principal ► Sala',
             cantidad: 1,
             categoria: 'Electrónica',
             notas: '4K. Garantía hasta 2026.'
@@ -3841,7 +3841,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'libro',
             nombre: "Libro 'El Hobbit'",
             img: 'img/libro.jpg',
-            ubicacion: 'Librero > Sala',
+            ubicacion: 'Librero ► Sala',
             cantidad: 1,
             categoria: 'Libros',
             notas: 'Edición regalo.'
@@ -3850,7 +3850,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'arroz',
             nombre: 'Paquete de arroz',
             img: 'img/arroz.jpg',
-            ubicacion: 'Casa Principal > Cocina > Despensa',
+            ubicacion: 'Casa Principal ► Cocina ► Despensa',
             cantidad: 3,
             categoria: 'Alimentos',
             notas: 'Caduca en noviembre.'
@@ -3859,7 +3859,7 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 'leche',
             nombre: 'Leche Entera',
             img: 'img/leche.jpg',
-            ubicacion: 'Casa Principal > Cocina > Refrigerador',
+            ubicacion: 'Casa Principal ► Cocina ► Refrigerador',
             cantidad: 2,
             categoria: 'Alimentos',
             notas: 'Una abierta, una cerrada.'
@@ -3938,7 +3938,12 @@ document.addEventListener('DOMContentLoaded', () => {
         detailImage.alt  = obj.nombre || 'Objeto';
 
         detailName.value     = obj.nombre || '';
-        detailLocation.value = obj.ubicacion || '';
+        // Mostrar la ubicación con el símbolo ► en vez de > solo visualmente
+        if (obj.ubicacion) {
+            detailLocation.value = obj.ubicacion.replace(/\s*>\s*/g, ' ► ');
+        } else {
+            detailLocation.value = '';
+        }
         detailQty.value      = obj.cantidad != null ? obj.cantidad : '';
         detailNotes.value    = obj.notas || '';
 
