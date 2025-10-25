@@ -706,11 +706,9 @@
                                 <div class="bg-white rounded-lg shadow-sm card">
                                     <div class="flex items-center justify-between p-4 border-b dark:border-gray-600">
                                         <span>Notificaciones</span>
-                                        <label class="relative inline-flex items-center cursor-pointer"><input
-                                                type="checkbox" value="" class="sr-only peer" checked>
-                                            <div
-                                                class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-                                            </div>
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input id="notif-switch" type="checkbox" value="" class="sr-only peer">
+                                            <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                                         </label>
                                     </div>
                                     <div class="flex items-center justify-between p-4">
@@ -725,8 +723,7 @@
                                 </div>
                             </div>
                             <button
-                                class="w-full py-3 font-semibold text-red-600 bg-white border border-red-200 rounded-lg card logout-btn">Cerrar
-                                Sesión</button>
+                                id="logout-btn" class="w-full py-3 font-semibold text-red-600 bg-white border border-red-200 rounded-lg card">Cerrar Sesión</button>
                         </div>
                     </div>
                 </div>
@@ -985,6 +982,40 @@
                 </div>
 
             </main>
+    <!-- MODAL CERRAR SESIÓN -->
+    <div id="logout-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden">
+        <div class="bg-white rounded-xl shadow-lg p-6 w-80 max-w-full text-center">
+            <div class="mb-4">
+                <svg class="mx-auto mb-2 w-12 h-12 text-red-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1118 0 9 9 0 01-18 0z" />
+                </svg>
+                <h2 class="text-lg font-semibold mb-2">¿Cerrar sesión?</h2>
+                <p class="text-gray-600">¿Estás seguro que deseas salir de tu cuenta?</p>
+            </div>
+            <div class="flex justify-center gap-4 mt-6">
+                <button id="logout-confirm" class="px-4 py-2 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition">Cerrar Sesión</button>
+                <button id="logout-cancel" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <!-- MODAL NOTIFICACIONES -->
+    <div id="notif-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40 hidden">
+        <div class="bg-white rounded-xl shadow-lg p-6 w-80 max-w-full text-center">
+            <div class="mb-4">
+                <svg class="mx-auto mb-2 w-12 h-12 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h11" />
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 17v1a2 2 0 104 0v-1" />
+                </svg>
+                <h2 class="text-lg font-semibold mb-2">Notificaciones activadas</h2>
+                <p class="text-gray-600">Ahora recibirás notificaciones importantes en tu dispositivo.</p>
+            </div>
+            <div class="flex justify-center gap-4 mt-6">
+                <button id="notif-confirm" class="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition">Confirmar</button>
+                <button id="notif-cancel" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg font-semibold hover:bg-gray-300 transition">Cancelar</button>
+            </div>
+        </div>
+    </div>
             <!-- NUEVO BOTÓN FLOTANTE PARA ALERTAS -->
 
             <!-- NUEVO FOOTER PARA SELECCIÓN DE ALERTAS -->
@@ -1049,6 +1080,48 @@
     </div>
 
     <script>
+        // Modal de cerrar sesión
+        document.addEventListener('DOMContentLoaded', function () {
+            const logoutBtn = document.getElementById('logout-btn');
+            const logoutModal = document.getElementById('logout-modal');
+            const logoutConfirm = document.getElementById('logout-confirm');
+            const logoutCancel = document.getElementById('logout-cancel');
+            if (logoutBtn && logoutModal) {
+                logoutBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    logoutModal.classList.remove('hidden');
+                });
+                logoutCancel && logoutCancel.addEventListener('click', function () {
+                    logoutModal.classList.add('hidden');
+                });
+                logoutConfirm && logoutConfirm.addEventListener('click', function () {
+                    // Aquí puedes poner la lógica real de cerrar sesión, por ahora solo oculta el modal
+                    logoutModal.classList.add('hidden');
+                    // window.location.href = '/login'; // Descomenta si tienes una página de login
+                });
+            }
+        });
+        // Modal de notificaciones al activar el switch
+        document.addEventListener('DOMContentLoaded', function () {
+            const notifSwitch = document.getElementById('notif-switch');
+            const notifModal = document.getElementById('notif-modal');
+            const notifConfirm = document.getElementById('notif-confirm');
+            const notifCancel = document.getElementById('notif-cancel');
+            if (notifSwitch && notifModal) {
+                notifSwitch.addEventListener('change', function (e) {
+                    if (notifSwitch.checked) {
+                        notifModal.classList.remove('hidden');
+                    }
+                });
+                notifConfirm && notifConfirm.addEventListener('click', function () {
+                    notifModal.classList.add('hidden');
+                });
+                notifCancel && notifCancel.addEventListener('click', function () {
+                    notifModal.classList.add('hidden');
+                    notifSwitch.checked = false;
+                });
+            }
+        });
         // Efecto de zoom (escala) en todas las imágenes de objetos al presionar o tocar
         document.addEventListener('DOMContentLoaded', function () {
             // Mapas de ids de imágenes a ids de objeto (puedes agregar más si hay otros listados)
