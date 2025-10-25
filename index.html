@@ -2093,7 +2093,7 @@
                     const div = document.createElement('div');
                     div.className = "flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg card";
                     div.innerHTML = `
-                        <div class="flex items-center">
+                        <div class="flex items-center clickable-prop" style="cursor:pointer;">
                             <span class="mr-4 text-2xl">${prop.icono || '🏠'}</span>
                             <span class="font-medium text-gray-800 dark:text-gray-100">${prop.nombre}</span>
                         </div>
@@ -2107,6 +2107,20 @@
                         </div>
                     `;
                     propertiesList.appendChild(div);
+
+                    // Permitir editar tocando el nombre o icono
+                    const clickable = div.querySelector('.clickable-prop');
+                    if (clickable) {
+                        clickable.addEventListener('click', () => {
+                            modalGenericTitle.textContent = 'Editar Propiedad';
+                            modalGenericInput.value = prop.nombre;
+                            modalAddGeneric.dataset.addType = 'propiedad_edit';
+                            modalAddGeneric.dataset.editId = prop.id;
+                            modalAddGeneric.classList.remove('hidden');
+                            modalAddGeneric.classList.add('flex');
+                            modalGenericInput.focus();
+                        });
+                    }
                 });
 
                 propertiesList.querySelectorAll('.edit').forEach(btn => {
@@ -2150,7 +2164,7 @@
                     const div = document.createElement('div');
                     div.className = "flex items-center justify-between p-4 bg-white border border-gray-200 rounded-lg card";
                     div.innerHTML = `
-                        <span class="font-medium text-gray-800 dark:text-gray-100">${cat.nombre}</span>
+                        <span class="font-medium text-gray-800 dark:text-gray-100 clickable-cat" style="cursor:pointer;">${cat.nombre}</span>
                         <div class="flex space-x-2">
                             <button class="icon-button edit" data-id="${cat.id}" data-name="${cat.nombre}">
                                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.536L16.732 3.732z"></path></svg>
@@ -2161,6 +2175,20 @@
                         </div>
                     `;
                     categoriesList.appendChild(div);
+
+                    // Permitir editar tocando el nombre
+                    const clickable = div.querySelector('.clickable-cat');
+                    if (clickable) {
+                        clickable.addEventListener('click', () => {
+                            modalGenericTitle.textContent = 'Editar Categoría';
+                            modalGenericInput.value = cat.nombre;
+                            modalAddGeneric.dataset.addType = 'categoria_edit';
+                            modalAddGeneric.dataset.editId = cat.id;
+                            modalAddGeneric.classList.remove('hidden');
+                            modalAddGeneric.classList.add('flex');
+                            modalGenericInput.focus();
+                        });
+                    }
                 });
 
                 categoriesList.querySelectorAll('.edit').forEach(btn => {
