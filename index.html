@@ -521,6 +521,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                         </svg>
+                        <div id="home-search-results" class="mt-2"></div>
                     </div>
 
                     <!-- Añadidos Recientemente -->
@@ -1126,9 +1127,7 @@
             const inventoryContent = document.getElementById('inventory-content');
             const inventoryNavHeader = document.getElementById('inventory-nav-header');
             const searchInput = document.getElementById('search-input');
-            const screenSearchResults = document.getElementById('screen-search-results');
-            const searchResultsContent = document.getElementById('search-results-content');
-            const searchBackBtn = document.getElementById('search-back-btn');
+            const homeSearchResults = document.getElementById('home-search-results');
             const homeAlertCards = document.querySelectorAll('.home-alert-card');
             const addCategoryHeaderBtn = document.getElementById('add-category-header-btn');
 
@@ -1607,30 +1606,25 @@
             });
 
             // --- LÓGICA DE BÚSQUEDA (NUESTRA VERSIÓN) ---
-            function performSearch() {
+            function performSearchHome() {
                 const term = searchInput.value.trim().toLowerCase();
-                // Permitir búsqueda desde 1 carácter
                 if (term.length < 1) {
-                    searchResultsContent.innerHTML = '<p class="py-10 text-center text-gray-500 dark:text-gray-400">Escribe para buscar objetos...</p>';
+                    homeSearchResults.innerHTML = '';
+                    document.querySelector('#screen-home .grid.grid-cols-2').parentElement.style.display = '';
                     return;
                 }
-
-                hideAllScreens();
-                screenSearchResults.classList.remove('hidden');
-                searchResultsContent.innerHTML = '';
-
-                // Coincidencia parcial en cualquier parte del nombre
+                // Filtrar objetos por coincidencia
                 const results = Object.keys(inventoryDB.objetos).filter(objId => {
                     const obj = inventoryDB.objetos[objId];
                     return obj.nombre && obj.nombre.toLowerCase().includes(term);
                 });
-
                 if (results.length > 0) {
+                    homeSearchResults.innerHTML = '';
                     results.forEach(objId => {
                         const obj = inventoryDB.objetos[objId];
                         const path = getFullPath('objetos', objId);
                         const div = document.createElement('div');
-                        div.className = 'flex items-center p-3 bg-white rounded-lg shadow-sm cursor-pointer hover:bg-blue-50 dark:bg-gray-800 dark:hover:bg-gray-700';
+                        div.className = 'flex items-center p-3 bg-white rounded-lg shadow-sm cursor-pointer hover:bg-blue-50 dark:bg-gray-800 dark:hover:bg-gray-700 mb-2';
                         div.innerHTML = `
                             <img src="img/${obj.img || 'placeholder.jpg'}" alt="${obj.nombre}" class="w-14 h-14 object-cover rounded-lg mr-3 border border-gray-200 dark:border-gray-700">
                             <div>
@@ -1638,21 +1632,19 @@
                                 <div class="text-xs text-gray-500 dark:text-gray-400">${path}</div>
                             </div>
                         `;
-                        // Al hacer click, navegar y resaltar
                         div.addEventListener('click', () => {
                             navigateToObjectInInventory(objId);
                         });
-                        searchResultsContent.appendChild(div);
+                        homeSearchResults.appendChild(div);
                     });
+                    // Ocultar la sección de añadidos recientemente
+                    document.querySelector('#screen-home .grid.grid-cols-2').parentElement.style.display = 'none';
                 } else {
-                    searchResultsContent.innerHTML = '<p class="py-10 text-center text-gray-500 dark:text-gray-400">No se encontraron objetos.</p>';
+                    homeSearchResults.innerHTML = '<p class="py-6 text-center text-gray-500 dark:text-gray-400">No se encontraron objetos.</p>';
+                    document.querySelector('#screen-home .grid.grid-cols-2').parentElement.style.display = 'none';
                 }
             }
-            searchInput.addEventListener('input', performSearch);
-            searchBackBtn.addEventListener('click', () => {
-                searchInput.value = '';
-                showScreen('home');
-            });
+            searchInput.addEventListener('input', performSearchHome);
 
             // --- RENDER CATEGORÍAS HOME (NUESTRA VERSIÓN) ---
             // --- RENDER AÑADIDOS RECIENTEMENTE ---
