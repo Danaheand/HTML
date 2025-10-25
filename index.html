@@ -407,6 +407,34 @@
         .dark .logout-btn:hover {
             background: rgba(239, 68, 68, 0.08) !important;
         }
+        .search-results-title {
+            @apply px-4 pt-4 pb-2 text-sm font-semibold text-gray-700 dark:text-gray-200;
+        }
+
+        .search-results-grid {
+            @apply grid grid-cols-2 gap-x-6 gap-y-6 px-4 pb-4;
+        }
+
+        .search-card {
+            @apply flex flex-col items-start text-left;
+        }
+
+        .search-card-imgWrapper {
+            @apply w-32 h-32 rounded-lg overflow-hidden bg-gray-200 border border-gray-300 flex items-center justify-center dark:bg-gray-700 dark:border-gray-600;
+        }
+
+        .search-card-imgWrapper img {
+            @apply w-full h-full object-cover;
+        }
+
+        .search-card-name {
+            @apply mt-2 text-sm font-medium text-gray-800 leading-snug truncate dark:text-gray-100;
+        }
+
+        .search-card-location {
+            @apply text-[11px] leading-tight text-gray-500 dark:text-gray-400;
+        }
+
     </style>
 </head>
 
@@ -484,115 +512,155 @@
                 <!-- PANTALLA DE INICIO (DASHBOARD) -->
                 <div id="screen-home" class="p-4 space-y-6">
 
-                    <!-- Saludo -->
-                    <header class="flex items-center justify-between">
-                        <div>
-                            <p class="text-gray-500 dark:text-gray-400">Hola, </p>
-                            <h1 class="text-2xl font-bold text-gray-800 dark:text-white">Carlos</h1>
-                        </div>
-                        <!-- Avatar/logo clickable to go to profile -->
-                        <div id="user-avatar" class="flex items-center cursor-pointer">
-                            <div
-                                class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white font-bold text-lg shadow">
-                                C</div>
-                        </div>
-                    </header>
+                    <!-- WRAPPER MODO NORMAL -->
+<div id="home-default-wrapper" class="space-y-6">
+    <!-- Saludo -->
+    <header class="flex items-center justify-between">
+        <div>
+            <p class="text-gray-500 dark:text-gray-400">Hola, </p>
+            <h1 class="text-2xl font-bold text-gray-800 dark:text-white">Carlos</h1>
+        </div>
+        <div id="user-avatar" class="flex items-center cursor-pointer">
+            <div
+                class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white font-bold text-lg shadow">
+                C
+            </div>
+        </div>
+    </header>
 
-                    <!-- Alertas Próximas -->
-                    <div>
-                        <h2 class="mb-3 text-lg font-semibold text-gray-800 dark:text-white">Alertas Próximas</h2>
-                        <div class="space-y-3">
-                            <div
-                                class="flex items-center p-3 space-x-3 bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer card home-alert-card">
-                                <div class="p-2 bg-red-100 rounded-full"><svg class="w-6 h-6 text-red-500" fill="none"
-                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg></div>
-                                <div>
-                                    <p class="font-medium text-gray-800 dark:text-gray-100">Leche caduca mañana</p>
-                                    <p class="text-sm text-gray-500 dark:text-gray-400">Despensa, Casa Principal</p>
-                                </div>
-                            </div>
-                            <div
-                                class="flex items-center p-3 space-x-3 bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer card home-alert-card">
-                                <div class="p-2 bg-yellow-100 rounded-full"><svg class="w-6 h-6 text-yellow-500"
-                                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.096 2.572-1.065z">
-                                        </path>
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                                    </svg></div>
-                                <div>
-                                    <p class="font-medium text-gray-800 dark:text-gray-100">Mantenimiento aire
-                                        acondicionado</p>
-                                    <p class="text-sm text-gray-500 dark:text-gray-400">En 5 días</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <!-- Alertas Próximas -->
+    <div>
+        <h2 class="mb-3 text-lg font-semibold text-gray-800 dark:text-white">Alertas Próximas</h2>
+        <div class="space-y-3">
+            <div
+                class="flex items-center p-3 space-x-3 bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer card home-alert-card">
+                <div class="p-2 bg-red-100 rounded-full">
+                    <svg class="w-6 h-6 text-red-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <p class="font-medium text-gray-800 dark:text-gray-100">Leche caduca mañana</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Despensa, Casa Principal</p>
+                </div>
+            </div>
+            <div
+                class="flex items-center p-3 space-x-3 bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer card home-alert-card">
+                <div class="p-2 bg-yellow-100 rounded-full">
+                    <svg class="w-6 h-6 text-yellow-500" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.096 2.572-1.065z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <p class="font-medium text-gray-800 dark:text-gray-100">Mantenimiento aire acondicionado</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">En 5 días</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                    <!-- Barra de Búsqueda -->
-                    <div class="relative">
-                        <input id="search-input" type="text" placeholder="¿Qué estás buscando?"
-                            class="w-full py-3 pl-10 pr-4 text-gray-700 bg-white border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200">
-                        <svg class="absolute w-5 h-5 text-gray-400 left-3 top-3.5" xmlns="http://www.w3.org/2000/svg"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                        </svg>
-                        <div id="home-search-results" class="mt-2"></div>
-                    </div>
+    <!-- Barra de Búsqueda (la misma de siempre) -->
+    <div class="relative">
+        <input
+            id="search-input"
+            type="text"
+            placeholder="Buscar en tu inventario..."
+            class="w-full py-3 pl-10 pr-10 text-gray-700 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+        >
 
-                    <!-- Añadidos Recientemente -->
-                    <div>
-                        <h2 class="mb-3 text-lg font-semibold text-gray-800 dark:text-white">Añadido Recientemente</h2>
-                        <div class="grid grid-cols-2 gap-6 justify-items-center items-center pb-4 px-4">
-                            <div class="w-32 text-center group cursor-pointer">
-                                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
-                                    <img src="img/taladro.jpg" alt="Taladro" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-taladro">
-                                </div>
-                                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Taladro Inalámbrico</p>
-                            </div>
-                            <div class="w-32 text-center group cursor-pointer">
-                                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
-                                    <img src="img/pasaporte.jpg" alt="Pasaporte" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-pasaporte">
-                                </div>
-                                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Pasaporte</p>
-                            </div>
-                            <div class="w-32 text-center group cursor-pointer">
-                                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
-                                    <img src="img/tele.jpg" alt="Televisión" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-tele">
-                                </div>
-                                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Televisión Salón</p>
-                            </div>
-                            <div class="w-32 text-center group cursor-pointer">
-                                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
-                                    <img src="img/libro.jpg" alt="Libro" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-libro">
-                                </div>
-                                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Libro 'El Hobbit'</p>
-                            </div>
-                        </div>
-                    </div>
+        <!-- icono lupa -->
+        <svg class="absolute w-5 h-5 text-gray-400 left-3 top-3.5" xmlns="http://www.w3.org/2000/svg"
+            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
 
-                    <!-- Categorías -->
-                    <div class="hidden">
-                        <div class="flex items-center justify-between mb-3">
-                            <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Categorías</h2>
-                            <button id="add-category-header-btn"
-                                class="p-1 text-blue-600 rounded-full hover:bg-blue-100 dark:hover:bg-gray-700">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                </svg>
-                            </button>
-                        </div>
-                        <div id="home-categories-list" class="grid grid-cols-1 gap-4 pb-4 px-2 sm:grid-cols-2">
-                            <!-- Las categorías se cargarán aquí por JS -->
-                        </div>
-                    </div>
+        <!-- botón X (oculto al inicio) -->
+        <button
+            id="search-clear-btn"
+            class="hidden absolute right-3 top-3 text-gray-400 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-100"
+            style="line-height:0;"
+        >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Objetos Añadidos -->
+    <div>
+        <h2 class="mb-3 text-lg font-semibold text-gray-800 dark:text-white">Objetos Añadidos</h2>
+        <div class="grid grid-cols-2 gap-6 justify-items-center items-center pb-4 px-4">
+            <div class="w-32 text-center group cursor-pointer">
+                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                    <img src="img/taladro.jpg" alt="Taladro" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-taladro">
+                </div>
+                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Taladro Inalámbrico</p>
+            </div>
+            <div class="w-32 text-center group cursor-pointer">
+                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                    <img src="img/pasaporte.jpg" alt="Pasaporte" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-pasaporte">
+                </div>
+                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Pasaporte</p>
+            </div>
+            <div class="w-32 text-center group cursor-pointer">
+                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                    <img src="img/tele.jpg" alt="Televisión" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-tele">
+                </div>
+                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Televisión Salón</p>
+            </div>
+            <div class="w-32 text-center group cursor-pointer">
+                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                    <img src="img/libro.jpg" alt="Libro" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-libro">
+                </div>
+                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Libro 'El Hobbit'</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- WRAPPER MODO BÚSQUEDA -->
+<div id="home-search-wrapper" class="space-y-4 hidden">
+    <!-- misma barra de búsqueda pero aquí la X sirve como "regresar" -->
+    <div class="relative">
+        <input
+            id="search-input-active"
+            type="text"
+            placeholder="Buscar en tu inventario..."
+            class="w-full py-3 pl-10 pr-10 text-gray-700 bg-white border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+        >
+
+        <svg class="absolute w-5 h-5 text-gray-400 left-3 top-3.5" xmlns="http://www.w3.org/2000/svg"
+            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+
+        <button
+            id="search-exit-btn"
+            class="absolute right-3 top-3 text-gray-400 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-100"
+            style="line-height:0;"
+        >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Resultados -->
+    <div id="home-search-results" class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-gray-800 dark:border-gray-700">
+        <!-- se llena con JS -->
+    </div>
+</div>
+
                 </div>
 
                 <!-- PANTALLA DE INVENTARIO -->
@@ -663,7 +731,6 @@
 
                     <div id="alert-list-actuales" class="space-y-6 alert-list">
                         <div>
-                            <h2 class="mb-3 text-lg font-semibold text-gray-800 dark:text-white">Importantes</h2>
                             <div id="alert-list-importantes" class="space-y-3">
                             </div>
                         </div>
@@ -725,24 +792,245 @@
                             </div>
                             <div>
                                 <h3 class="px-2 mb-2 text-sm font-semibold text-gray-500">Configuración</h3>
-                                <div class="bg-white rounded-lg shadow-sm card">
-                                    <div class="flex items-center justify-between p-4 border-b dark:border-gray-600">
-                                        <span>Notificaciones</span>
-                                        <label class="relative inline-flex items-center cursor-pointer">
-                                            <input id="notif-switch" type="checkbox" value="" class="sr-only peer">
-                                            <div class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                                        </label>
+                                <div class="bg-white rounded-lg shadow-sm card overflow-hidden">
+                        <!-- FILA: Notificaciones + switch + ícono de config -->
+                        <div class="flex items-center justify-between p-4 border-b dark:border-gray-600">
+                            <div class="flex flex-col">
+                                <span class="font-medium text-gray-800 dark:text-white">Notificaciones</span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400">Controla alertas y avisos de la app</span>
+                            </div>
+
+                            <div class="flex items-center space-x-3">
+                                <!-- Botón engranaje (aparece solo si notif está activado) -->
+                                <button id="notif-config-btn"
+                                    class="hidden text-gray-500 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
+                                    aria-label="Configurar notificaciones">
+                                    <!-- ícono engranaje -->
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.096 2.572-1.065z">
+                                        </path>
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </button>
+
+                                <!-- Switch general de notificaciones -->
+                                <label class="relative inline-flex items-center cursor-pointer">
+                                    <input id="notif-switch" type="checkbox" class="sr-only peer">
+                                    <div
+                                        class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700
+                                            peer-checked:after:translate-x-full peer-checked:after:border-white
+                                            after:content-[''] after:absolute after:top-0.5 after:left-[2px]
+                                            after:bg-white after:border-gray-300 after:border after:rounded-full
+                                            after:h-5 after:w-5 after:transition-all dark:border-gray-600
+                                            peer-checked:bg-blue-600">
                                     </div>
-                                    <div class="flex items-center justify-between p-4">
-                                        <span>Tema Oscuro</span>
-                                        <label class="relative inline-flex items-center cursor-pointer"><input
-                                                type="checkbox" id="theme-toggle" class="sr-only peer">
-                                            <div
-                                                class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
-                                            </div>
-                                        </label>
-                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- PANEL DE PERSONALIZACIÓN (colapsado por defecto) -->
+                        <div id="notif-config-panel" class="hidden border-b dark:border-gray-600 bg-white dark:bg-gray-800">
+    <!-- IMPORTANCIA ALTA -->
+    <div class="px-4 py-3 border-t border-gray-200 dark:border-gray-700">
+        <div class="flex items-start justify-between">
+            <div class="flex flex-col">
+                <span class="text-gray-800 dark:text-gray-100 font-medium">Importancia Alta</span>
+                <span class="text-xs text-gray-500 dark:text-gray-400">
+                    Alertas urgentes (por ejemplo: “caduca mañana”)
+                </span>
+            </div>
+        </div>
+
+        <div class="mt-3 space-y-2 pl-2">
+            <!-- Alta sonido -->
+            <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-800 dark:text-gray-100">Sonido</span>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input id="notif_high_sound" type="checkbox" class="sr-only peer">
+                    <div
+                        class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700
+                               peer-checked:after:translate-x-full peer-checked:after:border-white
+                               after:content-[''] after:absolute after:top-0.5 after:left-[2px]
+                               after:bg-white after:border-gray-300 after:border after:rounded-full
+                               after:h-5 after:w-5 after:transition-all dark:border-gray-600
+                               peer-checked:bg-blue-600">
+                    </div>
+                </label>
+            </div>
+            <!-- Alta vibración -->
+            <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-800 dark:text-gray-100">Vibración</span>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input id="notif_high_vibration" type="checkbox" class="sr-only peer default-vibration">
+                    <div
+                        class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700
+                               peer-checked:after:translate-x-full peer-checked:after:border-white
+                               after:content-[''] after:absolute after:top-0.5 after:left-[2px]
+                               after:bg-white after:border-gray-300 after:border after:rounded-full
+                               after:h-5 after:w-5 after:transition-all dark:border-gray-600
+                               peer-checked:bg-blue-600">
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- IMPORTANCIA MEDIA -->
+    <div class="px-4 py-3 border-t border-gray-200 dark:border-gray-700">
+        <div class="flex items-start justify-between">
+            <div class="flex flex-col">
+                <span class="text-gray-800 dark:text-gray-100 font-medium">Importancia Media</span>
+                <span class="text-xs text-gray-500 dark:text-gray-400">
+                    Recordatorios próximos
+                </span>
+            </div>
+        </div>
+
+        <div class="mt-3 space-y-2 pl-2">
+            <!-- Media sonido -->
+            <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-800 dark:text-gray-100">Sonido</span>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input id="notif_medium_sound" type="checkbox" class="sr-only peer">
+                    <div
+                        class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700
+                               peer-checked:after:translate-x-full peer-checked:after:border-white
+                               after:content-[''] after:absolute after:top-0.5 after:left-[2px]
+                               after:bg-white after:border-gray-300 after:border after:rounded-full
+                               after:h-5 after:w-5 after:transition-all dark:border-gray-600
+                               peer-checked:bg-blue-600">
+                    </div>
+                </label>
+            </div>
+            <!-- Media vibración -->
+            <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-800 dark:text-gray-100">Vibración</span>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input id="notif_medium_vibration" type="checkbox" class="sr-only peer default-vibration">
+                    <div
+                        class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700
+                               peer-checked:after:translate-x-full peer-checked:after:border-white
+                               after:content-[''] after:absolute after:top-0.5 after:left-[2px]
+                               after:bg-white after:border-gray-300 after:border after:rounded-full
+                               after:h-5 after:w-5 after:transition-all dark:border-gray-600
+                               peer-checked:bg-blue-600">
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- IMPORTANCIA BAJA -->
+    <div class="px-4 py-3 border-t border-gray-200 dark:border-gray-700">
+        <div class="flex items-start justify-between">
+            <div class="flex flex-col">
+                <span class="text-gray-800 dark:text-gray-100 font-medium">Importancia Baja</span>
+                <span class="text-xs text-gray-500 dark:text-gray-400">
+                    Cosas informativas, no urgentes
+                </span>
+            </div>
+        </div>
+
+        <div class="mt-3 space-y-2 pl-2">
+            <!-- Baja sonido -->
+            <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-800 dark:text-gray-100">Sonido</span>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input id="notif_low_sound" type="checkbox" class="sr-only peer">
+                    <div
+                        class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700
+                               peer-checked:after:translate-x-full peer-checked:after:border-white
+                               after:content-[''] after:absolute after:top-0.5 after:left-[2px]
+                               after:bg-white after:border-gray-300 after:border after:rounded-full
+                               after:h-5 after:w-5 after:transition-all dark:border-gray-600
+                               peer-checked:bg-blue-600">
+                    </div>
+                </label>
+            </div>
+            <!-- Baja vibración -->
+            <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-800 dark:text-gray-100">Vibración</span>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input id="notif_low_vibration" type="checkbox" class="sr-only peer default-vibration">
+                    <div
+                        class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700
+                               peer-checked:after:translate-x-full peer-checked:after:border-white
+                               after:content-[''] after:absolute after:top-0.5 after:left-[2px]
+                               after:bg-white after:border-gray-300 after:border after:rounded-full
+                               after:h-5 after:w-5 after:transition-all dark:border-gray-600
+                               peer-checked:bg-blue-600">
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- GENERALES DE LA APP -->
+    <div class="px-4 py-3 border-t border-gray-200 dark:border-gray-700">
+        <div class="flex items-start justify-between">
+            <div class="flex flex-col">
+                <span class="text-gray-800 dark:text-gray-100 font-medium">Generales de la App</span>
+                <span class="text-xs text-gray-500 dark:text-gray-400">
+                    Novedades, avisos generales
+                </span>
+            </div>
+        </div>
+
+        <div class="mt-3 space-y-2 pl-2">
+            <!-- General sonido -->
+            <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-800 dark:text-gray-100">Sonido</span>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input id="notif_low_sound" type="checkbox" class="sr-only peer">
+                    <div
+                        class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700
+                               peer-checked:after:translate-x-full peer-checked:after:border-white
+                               after:content-[''] after:absolute after:top-0.5 after:left-[2px]
+                               after:bg-white after:border-gray-300 after:border after:rounded-full
+                               after:h-5 after:w-5 after:transition-all dark:border-gray-600
+                               peer-checked:bg-blue-600">
+                    </div>
+                </label>
+            </div>
+            <!-- Baja vibración -->
+            <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-800 dark:text-gray-100">Vibración</span>
+                <label class="relative inline-flex items-center cursor-pointer">
+                    <input id="notif_low_vibration" type="checkbox" class="sr-only peer default-vibration">
+                    <div
+                        class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700
+                               peer-checked:after:translate-x-full peer-checked:after:border-white
+                               after:content-[''] after:absolute after:top-0.5 after:left-[2px]
+                               after:bg-white after:border-gray-300 after:border after:rounded-full
+                               after:h-5 after:w-5 after:transition-all dark:border-gray-600
+                               peer-checked:bg-blue-600">
+                    </div>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+                        <!-- TEMA OSCURO -->
+                        <div class="flex items-center justify-between p-4">
+                            <span class="text-gray-800 dark:text-white">Tema Oscuro</span>
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="theme-toggle" class="sr-only peer">
+                                <div
+                                    class="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700
+                                        peer-checked:after:translate-x-full peer-checked:after:border-white
+                                        after:content-[''] after:absolute after:top-0.5 after:left-[2px]
+                                        after:bg-white after:border-gray-300 after:border after:rounded-full
+                                        after:h-5 after:w-5 after:transition-all dark:border-gray-600
+                                        peer-checked:bg-blue-600">
                                 </div>
+                            </label>
+                        </div>
+                    </div>
                             </div>
                             <button
                                 id="logout-btn" class="w-full py-3 font-semibold text-red-600 bg-white border border-red-200 rounded-lg card">Cerrar Sesión</button>
@@ -2739,7 +3027,403 @@
             }
 
         });
+
+            document.addEventListener('DOMContentLoaded', function () {
+                // elementos principales del panel de notificaciones
+                const notifSwitch = document.getElementById('notif-switch');
+                const notifModal = document.getElementById('notif-modal');
+                const notifConfirm = document.getElementById('notif-confirm');
+                const notifCancel = document.getElementById('notif-cancel');
+
+                // engranaje y panel
+                const notifConfigBtn = document.getElementById('notif-config-btn');      // botón ⚙
+                const notifConfigPanel = document.getElementById('notif-config-panel');  // panel desplegable
+
+                // vamos a recordar si ya inicializamos vibración por defecto
+                let notifPanelInitialized = false;
+
+                // helper: prender vibración para todas las categorías la primera vez
+                function initDefaultVibration() {
+                    if (notifPanelInitialized) return;
+                    notifPanelInitialized = true;
+
+                    // todos los toggles con clase .default-vibration empiezan activos
+                    document.querySelectorAll('#notif-config-panel .default-vibration').forEach(cb => {
+                        cb.checked = true;
+                    });
+                }
+
+                // al cambiar el switch global
+                if (notifSwitch && notifModal) {
+                    notifSwitch.addEventListener('change', function () {
+                        if (notifSwitch.checked) {
+                            // 1. mostrar modal de confirmación
+                            notifModal.classList.remove('hidden');
+
+                            // 2. mostrar engranaje
+                            if (notifConfigBtn) {
+                                notifConfigBtn.classList.remove('hidden');
+                            }
+                        } else {
+                            // al apagar todo:
+                            // esconder panel y engranaje
+                            if (notifConfigPanel) {
+                                notifConfigPanel.classList.add('hidden');
+                            }
+                            if (notifConfigBtn) {
+                                notifConfigBtn.classList.add('hidden');
+                            }
+                        }
+                    });
+
+                    // confirmar en el modal
+                    if (notifConfirm) {
+                        notifConfirm.addEventListener('click', function () {
+                            notifModal.classList.add('hidden');
+                        });
+                    }
+
+                    // cancelar en el modal
+                    if (notifCancel) {
+                        notifCancel.addEventListener('click', function () {
+                            notifModal.classList.add('hidden');
+
+                            // revertir global
+                            notifSwitch.checked = false;
+
+                            // esconder panel y engranaje
+                            if (notifConfigPanel) {
+                                notifConfigPanel.classList.add('hidden');
+                            }
+                            if (notifConfigBtn) {
+                                notifConfigBtn.classList.add('hidden');
+                            }
+                        });
+                    }
+                }
+
+                // al tocar el engranaje
+                if (notifConfigBtn && notifConfigPanel && notifSwitch) {
+                    notifConfigBtn.addEventListener('click', function () {
+                        if (!notifSwitch.checked) return; // seguridad
+
+                        // inicializar defaults (vibración encendida en todas las categorías)
+                        initDefaultVibration();
+
+                        // toggle panel
+                        notifConfigPanel.classList.toggle('hidden');
+                    });
+                }
+                
+            });
+            document.addEventListener('DOMContentLoaded', function () {
+
+                // Referencias del modal de vista
+                const modalViewObject = document.getElementById('modal-view-object');
+                const closeViewObjectBtn = document.getElementById('close-view-object-btn');
+
+                // Campos del modal de vista
+                const photoEl = document.getElementById('view-object-photo');
+                const photoPlaceholder = document.getElementById('view-object-photo-placeholder');
+                const nameEl = document.getElementById('view-object-name');
+                const descEl = document.getElementById('view-object-desc');
+                const catEl = document.getElementById('view-object-category');
+                const qtyEl = document.getElementById('view-object-qty');
+                const unitsEl = document.getElementById('view-object-units');
+                const locEl = document.getElementById('view-object-location');
+                const costEl = document.getElementById('view-object-cost');
+                const dateEl = document.getElementById('view-object-date');
+
+                // util: abrir modal con datos
+                function openObjectDetail(data) {
+                    // imagen
+                    if (data.photo) {
+                        photoEl.src = data.photo;
+                        photoEl.classList.remove('hidden');
+                        photoPlaceholder.classList.add('hidden');
+                    } else {
+                        photoEl.classList.add('hidden');
+                        photoPlaceholder.classList.remove('hidden');
+                    }
+
+                    // texto / selects
+                    nameEl.value = data.name || '';
+                    descEl.value = data.desc || '';
+                    catEl.value = data.category || 'Seleccionar Categoría';
+                    qtyEl.value = data.qty || 1;
+                    unitsEl.value = data.units || 'Unidades';
+                    locEl.value = data.location || 'Casa Principal > Cocina > Despensa';
+                    costEl.value = data.cost || '';
+                    dateEl.value = data.buyDate || '';
+
+                    // mostrar modal
+                    modalViewObject.classList.remove('hidden');
+                }
+
+                // cerrar modal
+                if (closeViewObjectBtn) {
+                    closeViewObjectBtn.addEventListener('click', function () {
+                        modalViewObject.classList.add('hidden');
+                    });
+                }
+
+                // listeners para cada item reciente
+                const recentTaladro = document.getElementById('recent-taladro');
+                const recentPasaporte = document.getElementById('recent-pasaporte');
+                const recentTele = document.getElementById('recent-tele');
+                const recentLibro = document.getElementById('recent-libro');
+
+                if (recentTaladro) {
+                    recentTaladro.addEventListener('click', function () {
+                        openObjectDetail({
+                            photo: 'img/taladro.jpg',
+                            name: 'Taladro Inalámbrico',
+                            desc: 'Taladro inalámbrico de batería para uso doméstico.',
+                            category: 'Herramientas',
+                            qty: 1,
+                            units: 'Unidades',
+                            location: 'Casa Principal > Garaje > Caja Herramientas',
+                            cost: '45',
+                            buyDate: '2025-09-10'
+                        });
+                    });
+                }
+
+                if (recentPasaporte) {
+                    recentPasaporte.addEventListener('click', function () {
+                        openObjectDetail({
+                            photo: 'img/pasaporte.jpg',
+                            name: 'Pasaporte',
+                            desc: 'Documentación oficial, importante, vencer en 2027.',
+                            category: 'Documentos',
+                            qty: 1,
+                            units: 'Unidades',
+                            location: 'Oficina > Escritorio > Cajón 1',
+                            cost: '',
+                            buyDate: ''
+                        });
+                    });
+                }
+
+                if (recentTele) {
+                    recentTele.addEventListener('click', function () {
+                        openObjectDetail({
+                            photo: 'img/tele.jpg',
+                            name: 'Televisión Salón',
+                            desc: 'Televisión 55" 4K del salón.',
+                            category: 'Electrónica',
+                            qty: 1,
+                            units: 'Unidades',
+                            location: 'Casa Principal > Sala > Mueble TV',
+                            cost: '650',
+                            buyDate: '2024-06-15'
+                        });
+                    });
+                }
+
+                if (recentLibro) {
+                    recentLibro.addEventListener('click', function () {
+                        openObjectDetail({
+                            photo: 'img/libro.jpg',
+                            name: "Libro 'El Hobbit'",
+                            desc: 'Edición de colección.',
+                            category: 'Alimentos', // <- cámbialo si tienes "Libros" luego
+                            qty: 1,
+                            units: 'Unidades',
+                            location: 'Casa Principal > Dormitorio > Librero',
+                            cost: '20',
+                            buyDate: '2023-12-01'
+                        });
+                    });
+                }
+            });
+            
+
     </script>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    // wrappers
+    const homeDefaultWrapper = document.getElementById('home-default-wrapper');
+    const homeSearchWrapper  = document.getElementById('home-search-wrapper');
+
+    // inputs
+    const searchInputIdle    = document.getElementById('search-input');          // el de modo normal
+    const searchInputActive  = document.getElementById('search-input-active');   // el de modo búsqueda
+
+    // botones
+    const searchExitBtn      = document.getElementById('search-exit-btn');       // X grande en modo búsqueda
+
+    // contenedor resultados
+    const resultsBox         = document.getElementById('home-search-results');
+
+    // inventario simulado
+    const inventoryObjects = [
+        {
+            id: 'tele',
+            nombre: 'Televisión',
+            img: 'img/tele.jpg',
+            ubicacion: 'Casa Principal > Sala'
+        },
+        {
+            id: 'arroz',
+            nombre: 'Paquete de arroz',
+            img: 'img/arroz.jpg',
+            ubicacion: 'Casa Principal > Cocina > Despensa'
+        },
+        {
+            id: 'leche',
+            nombre: 'Leche Entera',
+            img: 'img/leche.jpg',
+            ubicacion: 'Casa Principal > Cocina > Refrigerador'
+        },
+        {
+            id: 'taladro',
+            nombre: 'Taladro Inalámbrico',
+            img: 'img/taladro.jpg',
+            ubicacion: 'Casa Principal > Garaje > Caja Herramientas'
+        },
+        {
+            id: 'pasaporte',
+            nombre: 'Pasaporte',
+            img: 'img/pasaporte.jpg',
+            ubicacion: 'Oficina > Escritorio > Cajón 1'
+        },
+        {
+            id: 'libro',
+            nombre: "Libro 'El Hobbit'",
+            img: 'img/libro.jpg',
+            ubicacion: 'Librero > Sala'
+        }
+    ];
+
+    // helpers
+    function goToSearchMode() {
+        homeDefaultWrapper.classList.add('hidden');
+        homeSearchWrapper.classList.remove('hidden');
+        homeSearchWrapper.classList.add('block');
+        // copiar el texto que el user escribió en el input normal -> input activo
+        searchInputActive.value = searchInputIdle.value;
+        searchInputActive.focus();
+        doSearch(searchInputActive.value);
+    }
+
+    function goToHomeMode() {
+        // limpiar ambos inputs
+        searchInputIdle.value   = '';
+        searchInputActive.value = '';
+        // vaciar resultados
+        resultsBox.innerHTML = '';
+        // volver a mostrar home normal
+        homeSearchWrapper.classList.add('hidden');
+        homeSearchWrapper.classList.remove('block');
+        homeDefaultWrapper.classList.remove('hidden');
+        homeDefaultWrapper.classList.add('block');
+        // enfoque UX vuelve al input idle si quieres
+        // searchInputIdle.focus();
+    }
+
+    function renderResults(list) {
+        if (!list || list.length === 0) {
+            resultsBox.innerHTML = `
+                <div class="px-4 py-6 text-center text-sm text-gray-500 dark:text-gray-400">
+                    No se encontró nada.
+                </div>
+            `;
+            return;
+        }
+
+        const cardsHtml = list.map(obj => `
+            <div class="flex flex-col items-start text-left w-32" data-open-object="${obj.id}">
+                <div class="w-32 h-32 rounded-lg overflow-hidden bg-gray-200 border border-gray-300 flex items-center justify-center dark:bg-gray-700 dark:border-gray-600">
+                    <img src="${obj.img}" alt="${obj.nombre}" class="w-full h-full object-cover">
+                </div>
+                <div class="mt-2 w-full">
+                    <div class="text-sm font-medium text-gray-800 leading-snug truncate dark:text-gray-100">
+                        ${obj.nombre}
+                    </div>
+                    <div class="text-[11px] leading-tight text-gray-500 dark:text-gray-400">
+                        ${obj.ubicacion}
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        resultsBox.innerHTML = `
+            <div class="px-4 pt-4 pb-2 text-sm font-semibold text-gray-700 dark:text-gray-200">
+                Resultados (${list.length})
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-700 pt-4 grid grid-cols-2 gap-x-6 gap-y-6 px-4 pb-4">
+                ${cardsHtml}
+            </div>
+        `;
+
+        // si ya tienes openObjectDetailModal(id) lo llamas aquí:
+        const cards = resultsBox.querySelectorAll('[data-open-object]');
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const id = card.getAttribute('data-open-object');
+                // openObjectDetailModal(id);
+            });
+        });
+    }
+
+    function doSearch(term) {
+        const q = (term || '').trim().toLowerCase();
+        if (q === '') {
+            renderResults([]);
+            return;
+        }
+
+        const matches = inventoryObjects.filter(obj => {
+            return (
+                (obj.nombre    && obj.nombre.toLowerCase().includes(q)) ||
+                (obj.ubicacion && obj.ubicacion.toLowerCase().includes(q))
+            );
+        });
+
+        renderResults(matches);
+    }
+
+    // eventos
+
+    // cuando el user escribe en el input idle (home normal)
+    if (searchInputIdle) {
+        searchInputIdle.addEventListener('input', () => {
+            // en cuanto empieza a escribir, saltamos al modo búsqueda
+            goToSearchMode();
+        });
+
+        // si da enter también saltamos
+        searchInputIdle.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                goToSearchMode();
+            }
+        });
+    }
+
+    // cuando ya estamos en modo búsqueda y sigue escribiendo
+    if (searchInputActive) {
+        searchInputActive.addEventListener('input', (e) => {
+            doSearch(e.target.value || '');
+        });
+
+        searchInputActive.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                doSearch(searchInputActive.value || '');
+            }
+        });
+    }
+
+    // botón X (salir de búsqueda y volver al home original limpio)
+    if (searchExitBtn) {
+        searchExitBtn.addEventListener('click', () => {
+            goToHomeMode();
+        });
+    }
+});
+</script>
+
+
 </body>
 
 </html>
