@@ -530,25 +530,25 @@
                         <div class="grid grid-cols-2 gap-6 justify-items-center items-center pb-4 px-4">
                             <div class="w-32 text-center group cursor-pointer">
                                 <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
-                                    <img src="img/taladro.jpg" alt="Taladro" class="object-cover w-full h-full transition-transform duration-150 group-hover:scale-105 group-active:scale-95" id="recent-taladro">
+                                    <img src="img/taladro.jpg" alt="Taladro" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-taladro">
                                 </div>
                                 <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Taladro Inalámbrico</p>
                             </div>
                             <div class="w-32 text-center group cursor-pointer">
                                 <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
-                                    <img src="img/pasaporte.jpg" alt="Pasaporte" class="object-cover w-full h-full transition-transform duration-150 group-hover:scale-105 group-active:scale-95" id="recent-pasaporte">
+                                    <img src="img/pasaporte.jpg" alt="Pasaporte" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-pasaporte">
                                 </div>
                                 <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Pasaporte</p>
                             </div>
                             <div class="w-32 text-center group cursor-pointer">
                                 <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
-                                    <img src="img/tele.jpg" alt="Televisión" class="object-cover w-full h-full transition-transform duration-150 group-hover:scale-105 group-active:scale-95" id="recent-tele">
+                                    <img src="img/tele.jpg" alt="Televisión" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-tele">
                                 </div>
                                 <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Televisión Salón</p>
                             </div>
                             <div class="w-32 text-center group cursor-pointer">
                                 <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
-                                    <img src="img/libro.jpg" alt="Libro" class="object-cover w-full h-full transition-transform duration-150 group-hover:scale-105 group-active:scale-95" id="recent-libro">
+                                    <img src="img/libro.jpg" alt="Libro" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-libro">
                                 </div>
                                 <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Libro 'El Hobbit'</p>
                             </div>
@@ -611,6 +611,22 @@
                             Seleccionar
                         </button>
                     </div>
+                    <button id="open-alert-modal-btn" 
+                        class="absolute z-40 w-16 h-16 text-white bg-blue-600 rounded-full add-button-shadow bottom-24 right-6 inline-flex items-center justify-center hover:bg-blue-700 transition-all duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" 
+                            class="w-7 h-7" 
+                            fill="none" 
+                            viewBox="0 0 24 24" 
+                            stroke="currentColor" 
+                            stroke-width="2">
+                            <path stroke-linecap="round" 
+                                stroke-linejoin="round" 
+                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h11" />
+                            <path stroke-linecap="round" 
+                                stroke-linejoin="round" 
+                                d="M12 17v1a2 2 0 104 0v-1" />
+                        </svg>
+                    </button>
 
                     <div class="flex mb-4 border-b border-gray-200 dark:border-gray-700">
                         <button id="alert-tab-actuales" data-tab="actuales"
@@ -970,22 +986,6 @@
 
             </main>
             <!-- NUEVO BOTÓN FLOTANTE PARA ALERTAS -->
-            <button id="open-alert-modal-btn" 
-                class="fixed z-40 w-16 h-16 text-white bg-blue-600 rounded-full add-button-shadow bottom-24 right-6 hidden inline-flex items-center justify-center hover:bg-blue-700 transition-all duration-200">
-                <svg xmlns="http://www.w3.org/2000/svg" 
-                    class="w-7 h-7" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    stroke="currentColor" 
-                    stroke-width="2">
-                    <path stroke-linecap="round" 
-                        stroke-linejoin="round" 
-                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h11" />
-                    <path stroke-linecap="round" 
-                        stroke-linejoin="round" 
-                        d="M12 17v1a2 2 0 104 0v-1" />
-                </svg>
-            </button>
 
             <!-- NUEVO FOOTER PARA SELECCIÓN DE ALERTAS -->
             <div id="alert-selection-footer"
@@ -1049,23 +1049,52 @@
     </div>
 
     <script>
-        // Hacer que las imágenes de "Añadido Recientemente" abran el modal de detalle
+        // Efecto de zoom (escala) en todas las imágenes de objetos al presionar o tocar
         document.addEventListener('DOMContentLoaded', function () {
-            const recentMap = {
+            // Mapas de ids de imágenes a ids de objeto (puedes agregar más si hay otros listados)
+            const imgToObjMap = {
                 'recent-taladro': 'obj5',
                 'recent-pasaporte': 'obj6',
                 'recent-tele': 'obj1',
                 'recent-libro': 'obj7'
             };
-            Object.keys(recentMap).forEach(id => {
+            Object.keys(imgToObjMap).forEach(id => {
                 const img = document.getElementById(id);
                 if (img) {
                     img.addEventListener('click', function (e) {
                         e.stopPropagation();
-                        openObjectDetailModal(recentMap[id]);
+                        openObjectDetailModal(imgToObjMap[id]);
                     });
                 }
             });
+
+            // Efecto de escala en todas las imágenes de objetos (incluye móvil)
+            function addZoomEffect(img) {
+                img.classList.add('transition-transform', 'duration-150');
+                // Para mouse
+                img.addEventListener('mousedown', function () {
+                    img.classList.add('scale-105');
+                });
+                img.addEventListener('mouseup', function () {
+                    img.classList.remove('scale-105');
+                });
+                img.addEventListener('mouseleave', function () {
+                    img.classList.remove('scale-105');
+                });
+                // Para touch
+                img.addEventListener('touchstart', function () {
+                    img.classList.add('scale-105');
+                });
+                img.addEventListener('touchend', function () {
+                    img.classList.remove('scale-105');
+                });
+                img.addEventListener('touchcancel', function () {
+                    img.classList.remove('scale-105');
+                });
+            }
+            // Inicial para imágenes ya presentes
+            document.querySelectorAll('img.object-cover').forEach(addZoomEffect);
+            // Si se agregan imágenes dinámicamente, puedes observar el DOM (opcional)
         });
         document.addEventListener('DOMContentLoaded', function () {
             // --- LOGIN STATE ---
