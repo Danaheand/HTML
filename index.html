@@ -453,7 +453,7 @@
                     <p id="login-error" class="mt-3 text-center text-red-500 text-sm hidden">Usuario o contraseña
                         incorrectos.</p>
                     <div class="mt-4 text-xs text-gray-400 text-center">Usuario: <span
-                            class="font-semibold text-gray-600 dark:text-gray-200">Sebas</span> | Contraseña: <span
+                            class="font-semibold text-gray-600 dark:text-gray-200">Carlos</span> | Contraseña: <span
                             class="font-semibold text-gray-600 dark:text-gray-200">12345</span></div>
                 </div>
             </div>
@@ -528,27 +528,27 @@
                     <div>
                         <h2 class="mb-3 text-lg font-semibold text-gray-800 dark:text-white">Añadido Recientemente</h2>
                         <div class="grid grid-cols-2 gap-6 justify-items-center items-center pb-4 px-4">
-                            <div class="w-32 text-center">
-                                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg">
-                                    <img src="img/taladro.jpg" alt="Taladro" class="object-cover w-full h-full">
+                            <div class="w-32 text-center group cursor-pointer">
+                                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                                    <img src="img/taladro.jpg" alt="Taladro" class="object-cover w-full h-full transition-transform duration-150 group-hover:scale-105 group-active:scale-95" id="recent-taladro">
                                 </div>
                                 <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Taladro Inalámbrico</p>
                             </div>
-                            <div class="w-32 text-center">
-                                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg">
-                                    <img src="img/pasaporte.jpg" alt="Pasaporte" class="object-cover w-full h-full">
+                            <div class="w-32 text-center group cursor-pointer">
+                                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                                    <img src="img/pasaporte.jpg" alt="Pasaporte" class="object-cover w-full h-full transition-transform duration-150 group-hover:scale-105 group-active:scale-95" id="recent-pasaporte">
                                 </div>
                                 <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Pasaporte</p>
                             </div>
-                            <div class="w-32 text-center">
-                                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg">
-                                    <img src="img/tele.jpg" alt="Televisión" class="object-cover w-full h-full">
+                            <div class="w-32 text-center group cursor-pointer">
+                                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                                    <img src="img/tele.jpg" alt="Televisión" class="object-cover w-full h-full transition-transform duration-150 group-hover:scale-105 group-active:scale-95" id="recent-tele">
                                 </div>
                                 <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Televisión Salón</p>
                             </div>
-                            <div class="w-32 text-center">
-                                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg">
-                                    <img src="img/libro.jpg" alt="Libro" class="object-cover w-full h-full">
+                            <div class="w-32 text-center group cursor-pointer">
+                                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                                    <img src="img/libro.jpg" alt="Libro" class="object-cover w-full h-full transition-transform duration-150 group-hover:scale-105 group-active:scale-95" id="recent-libro">
                                 </div>
                                 <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Libro 'El Hobbit'</p>
                             </div>
@@ -1049,6 +1049,24 @@
     </div>
 
     <script>
+        // Hacer que las imágenes de "Añadido Recientemente" abran el modal de detalle
+        document.addEventListener('DOMContentLoaded', function () {
+            const recentMap = {
+                'recent-taladro': 'obj5',
+                'recent-pasaporte': 'obj6',
+                'recent-tele': 'obj1',
+                'recent-libro': 'obj7'
+            };
+            Object.keys(recentMap).forEach(id => {
+                const img = document.getElementById(id);
+                if (img) {
+                    img.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        openObjectDetailModal(recentMap[id]);
+                    });
+                }
+            });
+        });
         document.addEventListener('DOMContentLoaded', function () {
             // --- LOGIN STATE ---
             let isLoggedIn = true;
@@ -1077,7 +1095,7 @@
                 loginBtn.addEventListener('click', function () {
                     const user = loginUsername.value.trim();
                     const pass = loginPassword.value;
-                    if (user === 'Sebas' && pass === '12345') {
+                    if (user === 'Carlos' && pass === '12345') {
                         hideLoginScreen();
                         showScreen('home');
                     } else {
@@ -1633,7 +1651,7 @@
                             </div>
                         `;
                         div.addEventListener('click', () => {
-                            navigateToObjectInInventory(objId);
+                            openObjectDetailModal(objId);
                         });
                         homeSearchResults.appendChild(div);
                     });
@@ -1643,6 +1661,99 @@
                     homeSearchResults.innerHTML = '<p class="py-6 text-center text-gray-500 dark:text-gray-400">No se encontraron objetos.</p>';
                     document.querySelector('#screen-home .grid.grid-cols-2').parentElement.style.display = 'none';
                 }
+            }
+
+            // Modal solo visualización de objeto
+            function openObjectDetailModal(objId) {
+                const obj = inventoryDB.objetos[objId];
+                if (!obj) return;
+                // Mostrar modal
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                // Cambiar título
+                modal.querySelector('h2').textContent = 'Detalle del Objeto';
+
+                // Rellenar campos principales
+                modalObjectNameInput.value = obj.nombre || '';
+
+                // Buscar y rellenar descripción
+                const descInput = modal.querySelector('textarea');
+                if (descInput) descInput.value = obj.descripcion || '';
+
+                // Rellenar categoría
+                const catSelect = modal.querySelectorAll('select')[0];
+                if (catSelect) {
+                    let found = false;
+                    for (let i = 0; i < catSelect.options.length; i++) {
+                        if (catSelect.options[i].text === obj.categoria) {
+                            catSelect.selectedIndex = i;
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) catSelect.selectedIndex = 0;
+                }
+
+                // Rellenar cantidad
+                const cantidadInput = modal.querySelector('input[type="number"]');
+                if (cantidadInput) cantidadInput.value = obj.cantidad || '';
+
+                // Rellenar unidad
+                const unidadSelect = modal.querySelectorAll('select')[1];
+                if (unidadSelect) {
+                    let found = false;
+                    for (let i = 0; i < unidadSelect.options.length; i++) {
+                        if (unidadSelect.options[i].text === obj.unidad) {
+                            unidadSelect.selectedIndex = i;
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) unidadSelect.selectedIndex = 0;
+                }
+
+                // Rellenar ubicación
+                const ubicacionSelect = modal.querySelectorAll('select')[2];
+                if (ubicacionSelect) {
+                    // Buscar path completo
+                    let ubicacion = '';
+                    if (obj.parent) {
+                        // Buscar el path del objeto
+                        ubicacion = getFullPath('objetos', objId);
+                    }
+                    let found = false;
+                    for (let i = 0; i < ubicacionSelect.options.length; i++) {
+                        if (ubicacionSelect.options[i].text === ubicacion) {
+                            ubicacionSelect.selectedIndex = i;
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) ubicacionSelect.selectedIndex = 0;
+                }
+
+                // Mostrar imagen si existe
+                const imgDiv = modal.querySelector('.flex.items-center.justify-center.w-full.h-32');
+                if (imgDiv) {
+                    imgDiv.innerHTML = obj.img ? `<img src="img/${obj.img}" alt="${obj.nombre}" class="object-contain h-full w-full">` : `<div class="text-center text-gray-500"><svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><p>Sin imagen</p></div>`;
+                }
+
+                // Deshabilitar todos los inputs y selects
+                modal.querySelectorAll('input, textarea, select').forEach(el => {
+                    el.disabled = true;
+                });
+                // Ocultar botón guardar
+                saveObjectBtn.style.display = 'none';
+                // Al cerrar, restaurar todo
+                function restoreModal() {
+                    modal.querySelector('h2').textContent = 'Añadir Nuevo Objeto';
+                    if (imgDiv) imgDiv.innerHTML = `<div class="text-center text-gray-500"><svg class="w-8 h-8 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg><p>Tocar para añadir foto</p></div>`;
+                    modal.querySelectorAll('input, textarea, select').forEach(el => {
+                        el.disabled = false;
+                    });
+                    saveObjectBtn.style.display = '';
+                }
+                closeModalBtn.addEventListener('click', restoreModal, { once: true });
             }
             searchInput.addEventListener('input', performSearchHome);
 
