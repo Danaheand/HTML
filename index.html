@@ -511,62 +511,58 @@
             <main class="flex-grow overflow-y-auto main-content">
                 <!-- PANTALLA DE INICIO (DASHBOARD) -->
                 <div id="screen-home" class="p-4 space-y-6">
+                    <div id="home-default-wrapper" class="space-y-6">
+                    <!-- Saludo -->
+                    <header class="flex items-center justify-between">
+                        <div>
+                            <p class="text-gray-500 dark:text-gray-400">Hola, </p>
+                            <h1 class="text-2xl font-bold text-gray-800 dark:text-white">Carlos</h1>
+                        </div>
+                        <!-- Avatar/logo clickable to go to profile -->
+                        <div id="user-avatar" class="flex items-center cursor-pointer">
+                            <div
+                                class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white font-bold text-lg shadow">
+                                C</div>
+                        </div>
+                    </header>
 
-                    <!-- WRAPPER MODO NORMAL -->
-<div id="home-default-wrapper" class="space-y-6">
-    <!-- Saludo -->
-    <header class="flex items-center justify-between">
-        <div>
-            <p class="text-gray-500 dark:text-gray-400">Hola, </p>
-            <h1 class="text-2xl font-bold text-gray-800 dark:text-white">Carlos</h1>
-        </div>
-        <div id="user-avatar" class="flex items-center cursor-pointer">
-            <div
-                class="w-10 h-10 flex items-center justify-center rounded-full bg-blue-600 text-white font-bold text-lg shadow">
-                C
-            </div>
-        </div>
-    </header>
+                    <!-- Alertas Próximas -->
+                    <div>
+                        <h2 class="mb-3 text-lg font-semibold text-gray-800 dark:text-white">Alertas Próximas</h2>
+                        <div class="space-y-3">
+                            <div
+                                class="flex items-center p-3 space-x-3 bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer card home-alert-card">
+                                <div class="p-2 bg-red-100 rounded-full"><svg class="w-6 h-6 text-red-500" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg></div>
+                                <div>
+                                    <p class="font-medium text-gray-800 dark:text-gray-100">Leche caduca mañana</p>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">Despensa, Casa Principal</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-center p-3 space-x-3 bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer card home-alert-card">
+                                <div class="p-2 bg-yellow-100 rounded-full"><svg class="w-6 h-6 text-yellow-500"
+                                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.096 2.572-1.065z">
+                                        </path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg></div>
+                                <div>
+                                    <p class="font-medium text-gray-800 dark:text-gray-100">Mantenimiento aire
+                                        acondicionado</p>
+                                    <p class="text-sm text-gray-500 dark:text-gray-400">En 5 días</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Alertas Próximas -->
-    <div>
-        <h2 class="mb-3 text-lg font-semibold text-gray-800 dark:text-white">Alertas Próximas</h2>
-        <div class="space-y-3">
-            <div
-                class="flex items-center p-3 space-x-3 bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer card home-alert-card">
-                <div class="p-2 bg-red-100 rounded-full">
-                    <svg class="w-6 h-6 text-red-500" fill="none"
-                        stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                </div>
-                <div>
-                    <p class="font-medium text-gray-800 dark:text-gray-100">Leche caduca mañana</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">Despensa, Casa Principal</p>
-                </div>
-            </div>
-            <div
-                class="flex items-center p-3 space-x-3 bg-white border border-gray-200 rounded-lg shadow-sm cursor-pointer card home-alert-card">
-                <div class="p-2 bg-yellow-100 rounded-full">
-                    <svg class="w-6 h-6 text-yellow-500" fill="none"
-                        stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.096 2.572-1.065z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
-                </div>
-                <div>
-                    <p class="font-medium text-gray-800 dark:text-gray-100">Mantenimiento aire acondicionado</p>
-                    <p class="text-sm text-gray-500 dark:text-gray-400">En 5 días</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Barra de Búsqueda (la misma de siempre) -->
-    <div class="relative">
+                    <div class="relative">
         <input
             id="search-input"
             type="text"
@@ -593,41 +589,97 @@
             </svg>
         </button>
     </div>
+                    <!-- Añadidos Recientemente -->
+                    <div>
+                        <h2 class="mb-3 text-lg font-semibold text-gray-800 dark:text-white">Objetos Añadidos</h2>
+                        <div class="grid grid-cols-2 gap-6 justify-items-center items-center pb-4 px-4">
+                            <div class="w-32 text-center group cursor-pointer">
+                                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                                    <img src="img/taladro.jpg" alt="Taladro" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-taladro">
+                                </div>
+                                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Taladro Inalámbrico</p>
+                            </div>
+                            <div class="w-32 text-center group cursor-pointer">
+                                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                                    <img src="img/pasaporte.jpg" alt="Pasaporte" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-pasaporte">
+                                </div>
+                                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Pasaporte</p>
+                            </div>
+                            <div class="w-32 text-center group cursor-pointer">
+                                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                                    <img src="img/tele.jpg" alt="Televisión" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-tele">
+                                </div>
+                                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Televisión Salón</p>
+                            </div>
+                            <div class="w-32 text-center group cursor-pointer">
+                                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                                    <img src="img/libro.jpg" alt="Libro" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-libro">
+                                </div>
+                                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Libro 'El Hobbit'</p>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Objetos Añadidos -->
-    <div>
-        <h2 class="mb-3 text-lg font-semibold text-gray-800 dark:text-white">Objetos Añadidos</h2>
-        <div class="grid grid-cols-2 gap-6 justify-items-center items-center pb-4 px-4">
-            <div class="w-32 text-center group cursor-pointer">
-                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
-                    <img src="img/taladro.jpg" alt="Taladro" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-taladro">
-                </div>
-                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Taladro Inalámbrico</p>
+                    <!-- Categorías -->
+                    <div class="hidden">
+                        <div class="flex items-center justify-between mb-3">
+                            <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Categorías</h2>
+                            <button id="add-category-header-btn"
+                                class="p-1 text-blue-600 rounded-full hover:bg-blue-100 dark:hover:bg-gray-700">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div id="home-categories-list" class="grid grid-cols-1 gap-4 pb-4 px-2 sm:grid-cols-2">
+                            <!-- Las categorías se cargarán aquí por JS -->
+                        </div>
+                    </div>
+                    <div class="mt-6">
+    <h2 class="mb-3 text-lg font-semibold text-gray-800 dark:text-white">Objetos Añadidos</h2>
+
+    <div class="grid grid-cols-2 gap-6 justify-items-center items-center pb-4 px-4">
+        <div class="w-32 text-center group cursor-pointer">
+            <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                <img src="img/taladro.jpg"
+                    class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer"
+                    alt="Taladro Inalámbrico">
             </div>
-            <div class="w-32 text-center group cursor-pointer">
-                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
-                    <img src="img/pasaporte.jpg" alt="Pasaporte" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-pasaporte">
-                </div>
-                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Pasaporte</p>
+            <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Taladro Inalámbrico</p>
+        </div>
+
+        <div class="w-32 text-center group cursor-pointer">
+            <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                <img src="img/pasaporte.jpg"
+                    class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer"
+                    alt="Pasaporte">
             </div>
-            <div class="w-32 text-center group cursor-pointer">
-                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
-                    <img src="img/tele.jpg" alt="Televisión" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-tele">
-                </div>
-                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Televisión Salón</p>
+            <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Pasaporte</p>
+        </div>
+
+        <div class="w-32 text-center group cursor-pointer">
+            <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                <img src="img/tele.jpg"
+                    class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer"
+                    alt="Televisión Salón">
             </div>
-            <div class="w-32 text-center group cursor-pointer">
-                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
-                    <img src="img/libro.jpg" alt="Libro" class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer" id="recent-libro">
-                </div>
-                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Libro 'El Hobbit'</p>
+            <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Televisión Salón</p>
+        </div>
+
+        <div class="w-32 text-center group cursor-pointer">
+            <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                <img src="img/libro.jpg"
+                    class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer"
+                    alt="Libro 'El Hobbit'">
             </div>
+            <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Libro 'El Hobbit'</p>
         </div>
     </div>
 </div>
 
-<!-- WRAPPER MODO BÚSQUEDA -->
-<div id="home-search-wrapper" class="space-y-4 hidden">
+                    </div>
+                    <div id="home-search-wrapper" class="space-y-4 hidden">
     <!-- misma barra de búsqueda pero aquí la X sirve como "regresar" -->
     <div class="relative">
         <input
@@ -660,7 +712,6 @@
         <!-- se llena con JS -->
     </div>
 </div>
-
                 </div>
 
                 <!-- PANTALLA DE INVENTARIO -->
@@ -3418,6 +3469,168 @@ document.addEventListener('DOMContentLoaded', () => {
     if (searchExitBtn) {
         searchExitBtn.addEventListener('click', () => {
             goToHomeMode();
+        });
+    }
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput    = document.getElementById('search-input');          // input
+    const searchClearBtn = document.getElementById('search-clear-btn');      // X
+    const resultsBox     = document.getElementById('home-search-results');   // caja de resultados
+
+    const inventoryObjects = [
+        {
+            id: 'tele',
+            nombre: 'Televisión Salón',
+            img: 'img/tele.jpg',
+            ubicacion: 'Casa Principal > Sala',
+        },
+        {
+            id: 'arroz',
+            nombre: 'Paquete de arroz',
+            img: 'img/arroz.jpg',
+            ubicacion: 'Casa Principal > Cocina > Despensa',
+        },
+        {
+            id: 'leche',
+            nombre: 'Leche Entera',
+            img: 'img/leche.jpg',
+            ubicacion: 'Casa Principal > Cocina > Refrigerador',
+        },
+        {
+            id: 'taladro',
+            nombre: 'Taladro Inalámbrico',
+            img: 'img/taladro.jpg',
+            ubicacion: 'Casa Principal > Garaje > Caja Herramientas',
+        },
+        {
+            id: 'pasaporte',
+            nombre: 'Pasaporte',
+            img: 'img/pasaporte.jpg',
+            ubicacion: 'Oficina > Escritorio > Cajón 1',
+        },
+        {
+            id: 'libro',
+            nombre: "Libro 'El Hobbit'",
+            img: 'img/libro.jpg',
+            ubicacion: 'Librero > Sala',
+        },
+    ];
+
+    function showResultsBox(show) {
+        if (!resultsBox) return;
+        resultsBox.classList.toggle('hidden', !show);
+        resultsBox.classList.toggle('block', show);
+    }
+
+    function showClearBtn(show) {
+        if (!searchClearBtn) return;
+        searchClearBtn.classList.toggle('hidden', !show);
+    }
+
+    function clearSearchUI() {
+        // limpiar input
+        searchInput.value = '';
+        // limpiar contenido resultados
+        resultsBox.innerHTML = '';
+        // ocultar caja resultados y ocultar X
+        showResultsBox(false);
+        showClearBtn(false);
+        // listo: debajo del input vuelven a verse "Objetos Añadidos" porque nunca los quitamos del DOM
+    }
+
+    function renderResults(matches) {
+        if (!resultsBox) return;
+
+        if (!matches || matches.length === 0) {
+            resultsBox.innerHTML = `
+                <div class="px-4 py-6 text-center text-sm text-gray-500 dark:text-gray-400">
+                    No se encontró nada.
+                </div>
+            `;
+            return;
+        }
+
+        const cardsHtml = matches.map(obj => `
+            <div class="flex flex-col items-start text-left w-32" data-open-object="${obj.id}">
+                <div class="w-32 h-32 rounded-lg overflow-hidden bg-gray-200 border border-gray-300 flex items-center justify-center dark:bg-gray-700 dark:border-gray-600">
+                    <img src="${obj.img}" alt="${obj.nombre}" class="w-full h-full object-cover">
+                </div>
+                <div class="mt-2 w-full">
+                    <div class="text-sm font-medium text-gray-800 leading-snug truncate dark:text-gray-100">
+                        ${obj.nombre}
+                    </div>
+                    <div class="text-[11px] leading-tight text-gray-500 dark:text-gray-400">
+                        ${obj.ubicacion}
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        resultsBox.innerHTML = `
+            <div class="px-4 pt-4 pb-2 text-sm font-semibold text-gray-700 dark:text-gray-200">
+                Resultados (${matches.length})
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-700 pt-4 grid grid-cols-2 gap-x-6 gap-y-6 px-4 pb-4">
+                ${cardsHtml}
+            </div>
+        `;
+    }
+
+    function doSearch(term) {
+        const q = (term || '').trim().toLowerCase();
+
+        if (q === '') {
+            clearSearchUI();
+            return;
+        }
+
+        const matches = inventoryObjects.filter(obj => {
+            return (
+                (obj.nombre    && obj.nombre.toLowerCase().includes(q)) ||
+                (obj.ubicacion && obj.ubicacion.toLowerCase().includes(q))
+            );
+        });
+
+        renderResults(matches);
+        showResultsBox(true);
+        showClearBtn(true);
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener('input', e => {
+            doSearch(e.target.value || '');
+        });
+
+        searchInput.addEventListener('keyup', e => {
+            if (e.key === 'Enter') {
+                doSearch(searchInput.value || '');
+            }
+        });
+
+        searchInput.addEventListener('focus', () => {
+            if ((searchInput.value || '').trim() === '') {
+                clearSearchUI();
+            }
+        });
+    }
+
+    if (searchClearBtn) {
+        searchClearBtn.addEventListener('click', e => {
+            e.preventDefault();
+            e.stopPropagation();
+            clearSearchUI();
+        });
+    }
+
+    if (resultsBox) {
+        resultsBox.addEventListener('click', e => {
+            const card = e.target.closest('[data-open-object]');
+            if (!card) return;
+            const objId = card.getAttribute('data-open-object');
+            console.log('abrir detalle de:', objId);
         });
     }
 });
