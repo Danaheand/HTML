@@ -640,42 +640,65 @@
     <h2 class="mb-3 text-lg font-semibold text-gray-800 dark:text-white">Objetos Añadidos</h2>
 
     <div class="grid grid-cols-2 gap-6 justify-items-center items-center pb-4 px-4">
-        <div class="w-32 text-center group cursor-pointer">
-            <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
-                <img src="img/taladro.jpg"
-                    class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer"
-                    alt="Taladro Inalámbrico">
+
+    <!-- Taladro -->
+            <div class="w-32 text-center group cursor-pointer" data-open-object="taladro">
+                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                    <img
+                        src="img/taladro.jpg"
+                        alt="Taladro Inalámbrico"
+                        class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer"
+                    >
+                </div>
+                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">
+                    Taladro Inalámbrico
+                </p>
             </div>
-            <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Taladro Inalámbrico</p>
+
+            <!-- Pasaporte -->
+            <div class="w-32 text-center group cursor-pointer" data-open-object="pasaporte">
+                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                    <img
+                        src="img/pasaporte.jpg"
+                        alt="Pasaporte"
+                        class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer"
+                    >
+                </div>
+                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">
+                    Pasaporte
+                </p>
+            </div>
+
+            <!-- Televisión -->
+            <div class="w-32 text-center group cursor-pointer" data-open-object="tele">
+                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                    <img
+                        src="img/tele.jpg"
+                        alt="Televisión Salón"
+                        class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer"
+                    >
+                </div>
+                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">
+                    Televisión Salón
+                </p>
+            </div>
+
+            <!-- Libro -->
+            <div class="w-32 text-center group cursor-pointer" data-open-object="libro">
+                <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
+                    <img
+                        src="img/libro.jpg"
+                        alt="Libro 'El Hobbit'"
+                        class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer"
+                    >
+                </div>
+                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">
+                    Libro 'El Hobbit'
+                </p>
+            </div>
+
         </div>
 
-        <div class="w-32 text-center group cursor-pointer">
-            <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
-                <img src="img/pasaporte.jpg"
-                    class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer"
-                    alt="Pasaporte">
-            </div>
-            <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Pasaporte</p>
-        </div>
-
-        <div class="w-32 text-center group cursor-pointer">
-            <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
-                <img src="img/tele.jpg"
-                    class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer"
-                    alt="Televisión Salón">
-            </div>
-            <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Televisión Salón</p>
-        </div>
-
-        <div class="w-32 text-center group cursor-pointer">
-            <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg transition ring-0 group-hover:ring-4 group-hover:ring-blue-400 group-active:ring-2 group-active:ring-blue-600 flex items-center justify-center">
-                <img src="img/libro.jpg"
-                    class="object-cover w-full h-full transition-transform duration-150 hover:scale-105 active:scale-95 cursor-pointer"
-                    alt="Libro 'El Hobbit'">
-            </div>
-            <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Libro 'El Hobbit'</p>
-        </div>
-    </div>
 </div>
 
                     </div>
@@ -1341,6 +1364,132 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- PANTALLA DETALLE / EDITAR OBJETO -->
+<div id="screen-object-detail" class="hidden p-4 pb-24">
+    <!-- header con back -->
+    <div class="flex items-center mb-4">
+        <button id="object-detail-back-btn"
+            class="p-2 mr-3 -ml-2 text-gray-600 rounded-full hover:bg-gray-200 dark:text-gray-300 dark:hover:bg-gray-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+        <h1 class="text-2xl font-bold text-gray-800 dark:text-white">
+            Objeto
+        </h1>
+    </div>
+
+    <!-- imagen grande -->
+    <div class="w-full mb-4 overflow-hidden rounded-xl bg-gray-200 border border-gray-300 dark:bg-gray-700 dark:border-gray-600 flex items-center justify-center"
+         style="height: 200px;">
+        <img id="detail-image"
+             src=""
+             alt="Imagen del objeto"
+             class="object-cover w-full h-full">
+    </div>
+
+    <!-- FORMULARIO -->
+    <div class="space-y-4">
+        <!-- Nombre -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
+                Nombre
+            </label>
+            <input id="detail-name" type="text"
+                   class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
+                          dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200">
+        </div>
+
+        <!-- Ubicación -->
+        <!-- Ubicación -->
+<div>
+    <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
+        Ubicación
+    </label>
+
+    <div class="relative">
+        <input id="detail-location" type="text"
+               class="w-full p-3 pr-10 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
+                      dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200">
+
+        <!-- Botón para abrir sugerencias -->
+        <button id="detail-location-picker-btn"
+                type="button"
+                class="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M19 9l-7 7-7-7" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Sugerencias de ubicaciones -->
+    <div id="detail-location-list"
+         class="hidden mt-2 border border-gray-300 rounded-lg bg-white shadow-lg dark:bg-gray-800 dark:border-gray-700 overflow-hidden">
+        <!-- Se llena con JS -->
+    </div>
+
+    <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-2">
+        Ej: Casa Principal > Cocina > Despensa
+    </p>
+</div>
+
+
+        <!-- Cantidad -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
+                Cantidad
+            </label>
+            <input id="detail-qty" type="number" min="1"
+                   class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
+                          dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200">
+        </div>
+
+        <!-- Categoría -->
+        <!-- Categoría -->
+<div>
+    <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
+        Categoría
+    </label>
+    <select id="detail-category"
+            class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
+                   dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200">
+        <!-- opciones se llenan con JS -->
+    </select>
+</div>
+
+
+        <!-- Notas -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
+                Notas
+            </label>
+            <textarea id="detail-notes" rows="3"
+                      class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
+                             dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
+                      placeholder="Información útil (garantía, caducidad, estado, número de serie...)"></textarea>
+        </div>
+
+        <!-- Guardar -->
+        <div class="pt-2">
+            <button id="detail-save-btn"
+                class="w-full py-3 font-semibold text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 transition">
+                Guardar cambios
+            </button>
+        </div>
+
+        <!-- Eliminar -->
+        <div>
+            <button id="detail-delete-btn"
+                class="w-full py-3 font-semibold text-red-600 bg-white border border-red-300 rounded-lg hover:bg-red-50 dark:bg-gray-800 dark:border-red-500 dark:text-red-400 dark:hover:bg-gray-700 transition">
+                Eliminar objeto
+            </button>
+        </div>
+    </div>
+</div>
+
 
             </main>
     <!-- MODAL CERRAR SESIÓN -->
@@ -3631,6 +3780,399 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!card) return;
             const objId = card.getAttribute('data-open-object');
             console.log('abrir detalle de:', objId);
+        });
+    }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // ---------------------------
+    // 1. REFERENCIAS DOM
+    // ---------------------------
+
+    // pantallas
+    const screenHome         = document.getElementById('screen-home');
+    const screenObjectDetail = document.getElementById('screen-object-detail');
+    const footerNav          = document.querySelector('footer.nav-bar');
+
+    // búsqueda en home
+    const searchInput    = document.getElementById('search-input');
+    const searchClearBtn = document.getElementById('search-clear-btn');
+    const resultsBox     = document.getElementById('home-search-results');
+
+    // inputs detalle objeto
+    const detailImage    = document.getElementById('detail-image');
+    const detailName     = document.getElementById('detail-name');
+    const detailLocation = document.getElementById('detail-location');
+    const detailQty      = document.getElementById('detail-qty');
+    const detailCategory = document.getElementById('detail-category');   // ahora va a ser <select>
+    const detailNotes    = document.getElementById('detail-notes');
+
+    // UI auxiliar en detalle
+    const detailLocationPickerBtn = document.getElementById('detail-location-picker-btn'); // lo vamos a crear
+    const detailLocationList      = document.getElementById('detail-location-list');       // lo vamos a crear
+
+    const backBtn   = document.getElementById('object-detail-back-btn');
+    const saveBtn   = document.getElementById('detail-save-btn');
+    const deleteBtn = document.getElementById('detail-delete-btn');
+
+    // ---------------------------
+    // 2. DATA
+    // ---------------------------
+
+    // Lugares sugeridos (para el dropdown de ubicación)
+    const knownLocations = [
+        'Casa Principal > Cocina > Despensa',
+        'Casa Principal > Cocina > Refrigerador',
+        'Casa Principal > Sala',
+        'Casa Principal > Garaje > Caja Herramientas',
+        'Oficina > Escritorio > Cajón 1',
+    ];
+
+    // Categorías disponibles (para el select)
+    const knownCategories = [
+        'Alimentos',
+        'Documentos',
+        'Herramientas',
+        'Electrónica',
+        'Libros'
+    ];
+
+    // Base de datos en memoria
+    const objectDB = {
+        taladro: {
+            id: 'taladro',
+            nombre: 'Taladro Inalámbrico',
+            img: 'img/taladro.jpg',
+            ubicacion: 'Casa Principal > Garaje > Caja Herramientas',
+            cantidad: 1,
+            categoria: 'Herramientas',
+            notas: 'Batería al 60%. Marca Bosch.'
+        },
+        pasaporte: {
+            id: 'pasaporte',
+            nombre: 'Pasaporte',
+            img: 'img/pasaporte.jpg',
+            ubicacion: 'Oficina > Escritorio > Cajón 1',
+            cantidad: 1,
+            categoria: 'Documentos',
+            notas: 'Vence 2029. No olvidar renovarlo 6 meses antes.'
+        },
+        tele: {
+            id: 'tele',
+            nombre: 'Televisión Salón',
+            img: 'img/tele.jpg',
+            ubicacion: 'Casa Principal > Sala',
+            cantidad: 1,
+            categoria: 'Electrónica',
+            notas: '4K. Garantía hasta 2026.'
+        },
+        libro: {
+            id: 'libro',
+            nombre: "Libro 'El Hobbit'",
+            img: 'img/libro.jpg',
+            ubicacion: 'Librero > Sala',
+            cantidad: 1,
+            categoria: 'Libros',
+            notas: 'Edición regalo.'
+        },
+        arroz: {
+            id: 'arroz',
+            nombre: 'Paquete de arroz',
+            img: 'img/arroz.jpg',
+            ubicacion: 'Casa Principal > Cocina > Despensa',
+            cantidad: 3,
+            categoria: 'Alimentos',
+            notas: 'Caduca en noviembre.'
+        },
+        leche: {
+            id: 'leche',
+            nombre: 'Leche Entera',
+            img: 'img/leche.jpg',
+            ubicacion: 'Casa Principal > Cocina > Refrigerador',
+            cantidad: 2,
+            categoria: 'Alimentos',
+            notas: 'Una abierta, una cerrada.'
+        }
+    };
+
+    const inventoryObjects = Object.values(objectDB);
+
+    // cuál estoy editando
+    let currentObjectId = null;
+
+    // ---------------------------
+    // 3. HELPERS DE UI GENERAL
+    // ---------------------------
+
+    function hide(el) {
+        el.classList.add('hidden');
+    }
+
+    function show(el) {
+        el.classList.remove('hidden');
+    }
+
+    // ---------------------------
+    // 4. DETALLE DE OBJETO
+    // ---------------------------
+
+    function populateCategorySelect(selectedValue) {
+        // Rellenar el <select> de categoría con opciones conocidas
+        // y marcar la actual
+        if (!detailCategory) return;
+        detailCategory.innerHTML = ''; // limpiamos
+
+        knownCategories.forEach(cat => {
+            const opt = document.createElement('option');
+            opt.value = cat;
+            opt.textContent = cat;
+            if (cat === selectedValue) {
+                opt.selected = true;
+            }
+            detailCategory.appendChild(opt);
+        });
+    }
+
+    function populateLocationDropdown(currentLocation) {
+        // Rellenar la lista de ubicaciones sugeridas para que el user pueda tocar una
+        if (!detailLocationList) return;
+        detailLocationList.innerHTML = '';
+
+        knownLocations.forEach(loc => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className =
+                'w-full text-left px-4 py-2 text-sm hover:bg-blue-50 border-b border-gray-200 last:border-b-0 ' +
+                'dark:hover:bg-gray-700 dark:border-gray-700';
+            btn.textContent = loc;
+            btn.addEventListener('click', () => {
+                detailLocation.value = loc;
+                hide(detailLocationList);
+            });
+            detailLocationList.appendChild(btn);
+        });
+
+        // Si la ubicación actual no está en la lista, la primera vez igual la dejamos en el input.
+        detailLocation.value = currentLocation || '';
+    }
+
+    function openObjectDetail(objectId) {
+        const obj = objectDB[objectId];
+        if (!obj) return;
+
+        currentObjectId = objectId;
+
+        // Llenar UI
+        detailImage.src  = obj.img || '';
+        detailImage.alt  = obj.nombre || 'Objeto';
+
+        detailName.value     = obj.nombre || '';
+        detailLocation.value = obj.ubicacion || '';
+        detailQty.value      = obj.cantidad != null ? obj.cantidad : '';
+        detailNotes.value    = obj.notas || '';
+
+        // categoría ahora es <select>, la llenamos dinámicamente
+        populateCategorySelect(obj.categoria);
+
+        // ubicaciones sugeridas
+        populateLocationDropdown(obj.ubicacion);
+
+        // Navegación visual
+        hide(screenHome);
+        show(screenObjectDetail);
+        if (footerNav) hide(footerNav);
+
+        // asegúrate que el panel dropdown de ubicaciones esté oculto al entrar
+        if (detailLocationList) hide(detailLocationList);
+
+        // scroll to top del detalle
+        screenObjectDetail.scrollTop = 0;
+    }
+
+    function backToHome() {
+        show(screenHome);
+        hide(screenObjectDetail);
+        if (footerNav) show(footerNav);
+    }
+
+    // guardar cambios
+    if (saveBtn) {
+        saveBtn.addEventListener('click', () => {
+            if (!currentObjectId) return;
+            const obj = objectDB[currentObjectId];
+            if (!obj) return;
+
+            obj.nombre    = detailName.value.trim();
+            obj.ubicacion = detailLocation.value.trim();
+            obj.cantidad  = detailQty.value ? parseInt(detailQty.value, 10) : obj.cantidad;
+            obj.categoria = detailCategory.value.trim();
+            obj.notas     = detailNotes.value.trim();
+
+            // aquí podrías hacer persistencia real (localStorage / backend)
+            backToHome();
+        });
+    }
+
+    // eliminar
+    if (deleteBtn) {
+        deleteBtn.addEventListener('click', () => {
+            if (!currentObjectId) return;
+            delete objectDB[currentObjectId];
+            currentObjectId = null;
+            backToHome();
+        });
+    }
+
+    // back arrow
+    if (backBtn) {
+        backBtn.addEventListener('click', () => {
+            backToHome();
+        });
+    }
+
+    // desplegar / ocultar lista de ubicaciones sugeridas
+    if (detailLocationPickerBtn && detailLocationList) {
+        detailLocationPickerBtn.addEventListener('click', () => {
+            if (detailLocationList.classList.contains('hidden')) {
+                show(detailLocationList);
+            } else {
+                hide(detailLocationList);
+            }
+        });
+    }
+
+    // Si el usuario toca fuera del panel de ubicaciones, lo cerramos (mobile-friendly)
+    document.addEventListener('click', (e) => {
+        if (!detailLocationList) return;
+        if (
+            !detailLocationList.contains(e.target) &&
+            e.target !== detailLocationPickerBtn
+        ) {
+            hide(detailLocationList);
+        }
+    });
+
+    // ---------------------------
+    // 5. CLIC EN OBJETOS DEL HOME
+    // ---------------------------
+    // Importante: ahora SÍ enganchamos los que ya existen en el DOM al cargar.
+    document.querySelectorAll('[data-open-object]').forEach(card => {
+        card.addEventListener('click', () => {
+            const objId = card.getAttribute('data-open-object');
+            openObjectDetail(objId);
+        });
+    });
+
+    // ---------------------------
+    // 6. BÚSQUEDA
+    // ---------------------------
+
+    function showResultsBox(showIt) {
+        resultsBox.classList.toggle('hidden', !showIt);
+        resultsBox.classList.toggle('block', showIt);
+    }
+
+    function showClearBtn(showIt) {
+        searchClearBtn.classList.toggle('hidden', !showIt);
+    }
+
+    function clearSearchUI() {
+        searchInput.value = '';
+        resultsBox.innerHTML = '';
+        showResultsBox(false);
+        showClearBtn(false);
+    }
+
+    function renderResults(matches) {
+        if (!matches || matches.length === 0) {
+            resultsBox.innerHTML = `
+                <div class="px-4 py-6 text-center text-sm text-gray-500 dark:text-gray-400">
+                    No se encontró nada.
+                </div>
+            `;
+            return;
+        }
+
+        const cardsHtml = matches.map(obj => `
+            <div class="flex flex-col items-start text-left w-32 cursor-pointer" data-open-object="${obj.id}">
+                <div class="w-32 h-32 rounded-lg overflow-hidden bg-gray-200 border border-gray-300 flex items-center justify-center dark:bg-gray-700 dark:border-gray-600">
+                    <img src="${obj.img}" alt="${obj.nombre}" class="w-full h-full object-cover">
+                </div>
+                <div class="mt-2 w-full">
+                    <div class="text-sm font-medium text-gray-800 leading-snug truncate dark:text-gray-100">
+                        ${obj.nombre}
+                    </div>
+                    <div class="text-[11px] leading-tight text-gray-500 dark:text-gray-400">
+                        ${obj.ubicacion}
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+        resultsBox.innerHTML = `
+            <div class="px-4 pt-4 pb-2 text-sm font-semibold text-gray-700 dark:text-gray-200">
+                Resultados (${matches.length})
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-700 pt-4 grid grid-cols-2 gap-x-6 gap-y-6 px-4 pb-4">
+                ${cardsHtml}
+            </div>
+        `;
+
+        // 👇 MUY IMPORTANTE:
+        // Re-enganchamos los nuevos resultados para que también abran el detalle
+        resultsBox.querySelectorAll('[data-open-object]').forEach(card => {
+            card.addEventListener('click', () => {
+                const objId = card.getAttribute('data-open-object');
+                openObjectDetail(objId);
+            });
+        });
+    }
+
+    function doSearch(term) {
+        const q = (term || '').trim().toLowerCase();
+
+        if (q === '') {
+            clearSearchUI();
+            return;
+        }
+
+        const matches = inventoryObjects.filter(obj => {
+            return (
+                (obj.nombre    && obj.nombre.toLowerCase().includes(q)) ||
+                (obj.ubicacion && obj.ubicacion.toLowerCase().includes(q))
+            );
+        });
+
+        renderResults(matches);
+        showResultsBox(true);
+        showClearBtn(true);
+    }
+
+    // listeners de búsqueda
+    if (searchInput) {
+        searchInput.addEventListener('input', e => {
+            doSearch(e.target.value || '');
+        });
+
+        searchInput.addEventListener('keyup', e => {
+            if (e.key === 'Enter') {
+                doSearch(searchInput.value || '');
+            }
+        });
+
+        searchInput.addEventListener('focus', () => {
+            if ((searchInput.value || '').trim() === '') {
+                clearSearchUI();
+            }
+        });
+    }
+
+    if (searchClearBtn) {
+        searchClearBtn.addEventListener('click', e => {
+            e.preventDefault();
+            e.stopPropagation();
+            clearSearchUI();
         });
     }
 });
