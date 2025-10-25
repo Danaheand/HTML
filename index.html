@@ -524,38 +524,50 @@
                     <!-- Añadidos Recientemente -->
                     <div>
                         <h2 class="mb-3 text-lg font-semibold text-gray-800 dark:text-white">Añadido Recientemente</h2>
-                        <div class="flex pb-4 -mx-4 space-x-4 overflow-x-auto px-4">
-                            <div class="flex-shrink-0 w-32 text-center">
+                        <div class="grid grid-cols-2 gap-6 justify-items-center items-center pb-4 px-4">
+                            <div class="w-32 text-center">
                                 <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg">
                                     <img src="img/taladro.jpg" alt="Taladro" class="object-cover w-full h-full">
                                 </div>
-                                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Taladro
-                                    Inalámbrico</p>
+                                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Taladro Inalámbrico</p>
                             </div>
-                            <div class="flex-shrink-0 w-32 text-center">
+                            <div class="w-32 text-center">
                                 <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg">
                                     <img src="img/pasaporte.jpg" alt="Pasaporte" class="object-cover w-full h-full">
                                 </div>
                                 <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Pasaporte</p>
                             </div>
-                            <div class="flex-shrink-0 w-32 text-center">
+                            <div class="w-32 text-center">
                                 <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg">
                                     <img src="img/tele.jpg" alt="Televisión" class="object-cover w-full h-full">
                                 </div>
-                                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Televisión
-                                    Salón</p>
+                                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Televisión Salón</p>
                             </div>
-                            <div class="flex-shrink-0 w-32 text-center">
+                            <div class="w-32 text-center">
                                 <div class="w-32 h-32 mb-2 overflow-hidden bg-gray-200 rounded-lg">
                                     <img src="img/libro.jpg" alt="Libro" class="object-cover w-full h-full">
                                 </div>
-                                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Libro 'El
-                                    Hobbit'</p>
+                                <p class="text-sm font-medium text-gray-700 truncate dark:text-gray-200">Libro 'El Hobbit'</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Categorías en Home eliminadas -->
+                    <!-- Categorías -->
+                    <div class="hidden">
+                        <div class="flex items-center justify-between mb-3">
+                            <h2 class="text-lg font-semibold text-gray-800 dark:text-white">Categorías</h2>
+                            <button id="add-category-header-btn"
+                                class="p-1 text-blue-600 rounded-full hover:bg-blue-100 dark:hover:bg-gray-700">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div id="home-categories-list" class="grid grid-cols-1 gap-4 pb-4 px-2 sm:grid-cols-2">
+                            <!-- Las categorías se cargarán aquí por JS -->
+                        </div>
+                    </div>
                 </div>
 
                 <!-- PANTALLA DE INVENTARIO -->
@@ -1410,7 +1422,7 @@
                         case 'categoria':
                             const newCatId = `cat${Date.now()}`;
                             inventoryDB.categorias.push({ id: newCatId, nombre: trimmedName });
-                            // renderHomeCategories(); // Eliminado porque la sección de categorías en Home fue removida
+                            renderHomeCategories();
                             if (!screenCategories.classList.contains('hidden')) {
                                 renderCategoriesCRUD();
                             }
@@ -1419,7 +1431,7 @@
                             const catToEdit = inventoryDB.categorias.find(c => c.id === modalAddGeneric.dataset.editId);
                             if (catToEdit) catToEdit.nombre = trimmedName;
                             renderCategoriesCRUD();
-                            // renderHomeCategories(); // Eliminado porque la sección de categorías en Home fue removida
+                            renderHomeCategories();
                             break;
                     }
                 }
@@ -1722,7 +1734,35 @@
                     }, 120);
                 }
             }
-            // función renderHomeCategories eliminada porque la sección de categorías en Home fue removida
+            function renderHomeCategories() {
+                const container = document.getElementById('home-categories-list');
+                container.innerHTML = '';
+                if (inventoryDB.categorias.length === 0) {
+                    container.innerHTML = `<p class="py-10 text-center text-gray-500 dark:text-gray-400 col-span-full">No tienes categorías.</p>`;
+                    return;
+                }
+                // Mostrar como grid de 2 columnas, estilo bonito
+                const grid = document.createElement('div');
+                grid.className = 'grid grid-cols-2 gap-2';
+                inventoryDB.categorias.forEach(cat => {
+                    const div = document.createElement('div');
+                    div.className = 'flex justify-center';
+                    const pill = document.createElement('span');
+                    pill.className = 'category-pill';
+                    pill.textContent = cat.nombre;
+                    div.appendChild(pill);
+                    grid.appendChild(div);
+                });
+                container.appendChild(grid);
+                grid.className = 'grid grid-cols-2 gap-2';
+                inventoryDB.categorias.forEach(cat => {
+                    const div = document.createElement('div');
+                    div.textContent = cat.nombre;
+                    div.className = 'px-3 py-2 rounded-full border border-blue-300 bg-white text-gray-800 dark:bg-gray-800 dark:text-gray-200 dark:border-blue-700 shadow-sm font-medium text-sm text-center';
+                    grid.appendChild(div);
+                });
+                container.appendChild(grid);
+            }
 
             // --- NAVEGACIÓN Y CRUD DE PERFIL (NUESTRA VERSIÓN) ---
             // --- CERRAR SESIÓN ---
@@ -1845,7 +1885,7 @@
                         if (index > -1) {
                             inventoryDB.categorias.splice(index, 1);
                             renderCategoriesCRUD();
-                            // renderHomeCategories(); // Eliminado porque la sección de categorías en Home fue removida
+                            renderHomeCategories();
                         }
                     });
                 });
@@ -2361,7 +2401,7 @@
             });
 
             // --- INICIALIZACIÓN ---
-            // renderHomeCategories(); // Eliminado porque la sección de categorías en Home fue removida
+            renderHomeCategories();
             renderRecentlyAdded();
             populateAlertModalSelects(); // <-- NUEVO
             // Mostrar login si no está logueado
